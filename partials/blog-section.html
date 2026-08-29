@@ -1,0 +1,83 @@
+<!-- CoinvestAI — Professional Blog / Knowledge Base Section (Clean, Fast, Mobile-First)
+     Drop this into any page. Requires style.css + blog-enhanced.css
+     Features: search, category filter, lazy images, E-E-A-T badges, AdSense slots
+-->
+<section class="blog-section" id="knowledge-base">
+  <div class="container">
+    <div class="blog-header">
+      <span class="blog-kicker">Knowledge Base • 2026</span>
+      <h2>AI Finance Tools, Algorithmic Analysis & Smart Investing Insights</h2>
+      <p>Independent technical research, quantitative reviews, and educational guides — updated weekly with transparent methodology.</p>
+    </div>
+
+    <div class="blog-controls">
+      <div class="search-wrapper">
+        <input type="text" id="kbSearch" placeholder="Search research, tools, risk, crypto..." aria-label="Search knowledge base">
+        <span class="search-icon">🔍</span>
+      </div>
+      <div class="filter-row">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai-tools">AI Tools</button>
+        <button class="filter-btn" data-filter="fintech">Fintech</button>
+        <button class="filter-btn" data-filter="crypto">Crypto AI</button>
+        <button class="filter-btn" data-filter="risk">Risk & Compliance</button>
+      </div>
+    </div>
+
+    <div class="blog-grid" id="kbGrid">
+      <!-- Example Card — Duplicate for each article -->
+      <article class="kb-card" data-category="ai-tools" data-title="Explainable AI in Finance">
+        <div class="kb-image" style="background:linear-gradient(135deg,#2563EB,#0f9c8e)">🧠<span class="kb-cat">AI Tools</span><span class="kb-new">NEW</span></div>
+        <div class="kb-body">
+          <h3><a href="/blog-ai-explainability-finance-2026.html">Explainable AI in Finance: How XAI Improves Algorithmic Transparency</a></h3>
+          <p>SHAP, LIME, counterfactuals, and regulatory alignment for AI finance tools — a technical guide for 2026.</p>
+          <div class="kb-meta"><span>Aug 29, 2026 • 12 min</span><span>By Editorial Team</span></div>
+          <div class="kb-tags"><span>AI Finance Tools</span><span>Algorithmic Analysis</span></div>
+        </div>
+      </article>
+
+      <article class="kb-card" data-category="risk" data-title="Real-Time Risk Scoring">
+        <div class="kb-image" style="background:linear-gradient(135deg,#7c3aed,#2563EB)">⚡<span class="kb-cat">Risk & Compliance</span><span class="kb-new">NEW</span></div>
+        <div class="kb-body">
+          <h3><a href="/blog-real-time-risk-scoring-ai-2026.html">Real-Time Risk Scoring with AI: Streaming Pipelines for Smart Investing Insights</a></h3>
+          <p>Architecture, feature stores, and governance for low-latency risk scoring in fintech and crypto.</p>
+          <div class="kb-meta"><span>Aug 29, 2026 • 13 min</span><span>By Editorial Team</span></div>
+          <div class="kb-tags"><span>Smart Investing Insights</span><span>Algorithmic Analysis</span></div>
+        </div>
+      </article>
+
+      <!-- Add more cards as needed, following same structure -->
+    </div>
+
+    <div class="blog-disclaimer">
+      <strong>⚠️ Educational Disclosure:</strong> All content is for educational and research purposes only. Not financial advice. See <a href="/disclaimer.html">disclaimer</a> and <a href="/editorial-guidelines.html">editorial guidelines</a>.
+    </div>
+  </div>
+</section>
+
+<script>
+// Lightweight filter + search (no dependencies, <2KB)
+(function(){
+  const grid=document.getElementById('kbGrid');
+  const search=document.getElementById('kbSearch');
+  const btns=document.querySelectorAll('.filter-btn');
+  let activeFilter='all';
+  function apply(){
+    const q=(search.value||'').toLowerCase().trim();
+    grid.querySelectorAll('.kb-card').forEach(card=>{
+      const cat=card.dataset.category;
+      const title=(card.dataset.title||card.textContent).toLowerCase();
+      const matchFilter=activeFilter==='all'||cat===activeFilter;
+      const matchSearch=!q||title.includes(q);
+      card.style.display=(matchFilter&&matchSearch)?'flex':'none';
+    });
+  }
+  btns.forEach(b=>b.addEventListener('click',()=>{
+    btns.forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    activeFilter=b.dataset.filter;
+    apply();
+  }));
+  search.addEventListener('input',apply);
+})();
+</script>

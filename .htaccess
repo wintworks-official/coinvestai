@@ -1,0 +1,74 @@
+# CoinvestAI — Apache .htaccess for 301 Permanent Redirects & SEO Hardening
+# Place this file in the document root if hosting on Apache / LiteSpeed.
+# For GitHub Pages / Cloudflare Pages, use _redirects file instead.
+# Last Updated: 2026-08-29
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# Force HTTPS (if behind proxy that supports it)
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Force canonical www handling: redirect non-www to www OR vice versa
+# Example: redirect coinvestai.com to www.coinvestai.com — adjust as needed.
+# Currently coinvestai.com is canonical, so we redirect www to apex:
+RewriteCond %{HTTP_HOST} ^www\.coinvestai\.com [NC]
+RewriteRule ^(.*)$ https://coinvestai.com/$1 [R=301,L]
+
+# --- Legacy URLs with spaces (encoded) ---
+RewriteRule ^AI-Driven\ On-Chain\ Analytics\ in\ Crypto\ Markets\ \(2026\)\.html$ /blog-blockchain-data-analytics-ai.html [R=301,L,NE]
+RewriteRule ^AI-Driven%20On-Chain%20Analytics%20in%20Crypto%20Markets%20\(2026\)\.html$ /blog-blockchain-data-analytics-ai.html [R=301,L,NE]
+
+# --- Extensionless legacy file ---
+RewriteRule ^blog-ai-onchain-crypto-analytics-2026$ /blog-blockchain-data-analytics-ai.html [R=301,L]
+RewriteRule ^blog-ai-onchain-crypto-analytics-2026\.html$ /blog-blockchain-data-analytics-ai.html [R=301,L]
+
+# --- Directory index handling (preserve /blog.html as canonical) ---
+RewriteRule ^blog/$ /blog.html [R=301,L]
+RewriteRule ^ai-tools/$ /ai-tools.html [R=301,L]
+RewriteRule ^reviews/$ /reviews.html [R=301,L]
+RewriteRule ^fintech/$ /fintech.html [R=301,L]
+RewriteRule ^crypto-ai/$ /crypto-ai.html [R=301,L]
+RewriteRule ^guides/$ /guides.html [R=301,L]
+RewriteRule ^news/$ /news.html [R=301,L]
+
+# --- Prevent access to sensitive files ---
+RewriteRule ^\.git - [F,L]
+RewriteRule ^admin\.yaml$ - [F,L]
+
+# --- Remove trailing .html for clean URLs? NO — preserve existing URLs ---
+# We intentionally do NOT remove .html to preserve URL structure.
+
+</IfModule>
+
+# --- Security Headers (SEO & Trust) ---
+<IfModule mod_headers.c>
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+# HSTS - enable only if fully HTTPS
+# Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+# --- Compression ---
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# --- Caching (Performance for SEO) ---
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+ExpiresByType image/webp "access plus 1 year"
+ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# --- Custom 404 ---
+ErrorDocument 404 /404.html
