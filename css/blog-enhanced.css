@@ -1,0 +1,42 @@
+/* CoinvestAI — Enhanced Blog / Knowledge Base Styles
+   Mobile-first, fast, no layout shift, E-E-A-T ready
+   Include after style.css: <link rel="stylesheet" href="/css/blog-enhanced.css">
+*/
+
+.blog-section{padding:64px 0;background:#fff}
+.blog-header{text-align:center;max-width:780px;margin:0 auto 32px}
+.blog-kicker{display:inline-block;padding:6px 14px;background:#eff6ff;color:#2563EB;border-radius:999px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.blog-header h2{font-family:'Space Grotesk',sans-serif;font-size:36px;line-height:1.2;color:#0F172A;margin-bottom:12px}
+.blog-header p{color:#64748B;font-size:17px;line-height:1.6}
+
+.blog-controls{max-width:900px;margin:0 auto 28px}
+.search-wrapper{position:relative;max-width:560px;margin:0 auto 18px}
+.search-wrapper input{width:100%;padding:14px 20px 14px 44px;border:2px solid #e5e7eb;border-radius:999px;font-size:15px;outline:none;transition:border-color .2s;font-family:Inter,sans-serif}
+.search-wrapper input:focus{border-color:#2563EB}
+.search-wrapper .search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#64748B}
+
+.filter-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.filter-btn{padding:8px 16px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;color:#111827;font-weight:600;font-size:13px;cursor:pointer;transition:.2s}
+.filter-btn.active,.filter-btn:hover{background:#2563EB;color:#fff;border-color:#2563EB}
+
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.kb-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s}
+.kb-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.07);border-color:#2563EB}
+.kb-image{height:180px;position:relative;display:flex;align-items:center;justify-content:center;font-size:42px;color:rgba(255,255,255,.7)}
+.kb-cat{position:absolute;top:12px;left:12px;padding:5px 12px;background:rgba(255,255,255,.92);border-radius:999px;font-size:11px;font-weight:700;color:#0F172A;text-transform:uppercase}
+.kb-new{position:absolute;top:12px;right:12px;padding:4px 10px;background:#22C55E;border-radius:6px;font-size:11px;font-weight:700;color:#fff}
+.kb-body{padding:20px;display:flex;flex-direction:column;flex-grow:1}
+.kb-body h3{font-family:'Space Grotesk',sans-serif;font-size:18px;line-height:1.35;margin-bottom:8px;color:#0F172A}
+.kb-body h3 a{color:inherit;text-decoration:none}
+.kb-body h3 a:hover{color:#2563EB;text-decoration:underline}
+.kb-body p{color:#64748B;font-size:14px;line-height:1.6;margin-bottom:12px}
+.kb-meta{display:flex;gap:12px;font-size:12px;color:#64748B;margin-bottom:10px;flex-wrap:wrap}
+.kb-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.kb-tags span{padding:4px 10px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:999px;font-size:11px;color:#475569}
+
+.blog-disclaimer{max-width:900px;margin:28px auto 0;background:#fffbeb;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;font-size:13px;color:#92400e;line-height:1.6}
+
+@media(max-width:768px){
+  .blog-header h2{font-size:26px}
+  .blog-grid{grid-template-columns:1fr}
+}

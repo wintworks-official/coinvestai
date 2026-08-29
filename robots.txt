@@ -2,5 +2,13 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /api
+Disallow: /_drafts/
+Disallow: /*?utm_*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
 
+# Sitemap
 Sitemap: https://coinvestai.com/sitemap.xml
+
+# Host
+Host: https://coinvestai.com

@@ -1,0 +1,51 @@
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "{{ARTICLE_HEADLINE}}",
+  "alternativeHeadline": "{{ALT_HEADLINE}}",
+  "description": "{{META_DESCRIPTION}}",
+  "image": "{{OG_IMAGE_URL}}",
+  "author": {
+    "@type": "Person",
+    "name": "CoinvestAI Editorial Team",
+    "url": "https://coinvestai.com/authors-coinvestai-editorial-team.html",
+    "jobTitle": "AI Finance Research Team",
+    "knowsAbout": ["AI Finance Tools", "Algorithmic Analysis", "Smart Investing Insights", "Quantitative Research"]
+  },
+  "editor": {
+    "@type": "Person",
+    "name": "CoinvestAI Editorial Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CoinvestAI",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://coinvestai.com/logo.png",
+      "width": 512,
+      "height": 512
+    }
+  },
+  "datePublished": "{{YYYY-MM-DD}}",
+  "dateModified": "{{YYYY-MM-DD}}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{CANONICAL_URL}}"
+  },
+  "keywords": "AI Finance Tools, Algorithmic Analysis, Smart Investing Insights, AI investing, quantitative research",
+  "articleSection": "{{CATEGORY}}",
+  "wordCount": "{{WORD_COUNT}}",
+  "timeRequired": "PT{{READ_MIN}}M",
+  "isAccessibleForFree": true,
+  "educationalLevel": "Intermediate to Advanced",
+  "proficiencyLevel": "Expert",
+  "about": [
+    {"@type":"Thing","name":"Artificial Intelligence in Finance"},
+    {"@type":"Thing","name":"Algorithmic Trading"},
+    {"@type":"Thing","name":"Financial Data Analysis"}
+  ],
+  "mentions": [
+    {"@type":"SoftwareApplication","name":"TradingView","applicationCategory":"FinanceApplication"},
+    {"@type":"SoftwareApplication","name":"ChatGPT","applicationCategory":"AIApplication"}
+  ]
+}

@@ -1,0 +1,31 @@
+# CoinvestAI — Permanent Redirects (Netlify / Cloudflare Pages)
+# Format: /source /destination status
+# All redirects are 301 to preserve SEO equity and avoid 404s.
+# Last Updated: 2026-08-29
+
+# --- Legacy URL with spaces & parentheses (old draft) ---
+/AI-Driven%20On-Chain%20Analytics%20in%20Crypto%20Markets%20(2026).html /blog-blockchain-data-analytics-ai.html 301!
+/AI-Driven%20On-Chain%20Analytics%20in%20Crypto%20Markets%20(2026) /blog-blockchain-data-analytics-ai.html 301!
+
+# --- Extensionless legacy file (server was serving without .html) ---
+/blog-ai-onchain-crypto-analytics-2026 /blog-blockchain-data-analytics-ai.html 301!
+/blog-ai-onchain-crypto-analytics-2026.html /blog-blockchain-data-analytics-ai.html 301!
+
+# --- Ensure canonical trailing slash handling (optional) ---
+/blog/ /blog.html 301
+/ai-tools/ /ai-tools.html 301
+/reviews/ /reviews.html 301
+/fintech/ /fintech.html 301
+/crypto-ai/ /crypto-ai.html 301
+/guides/ /guides.html 301
+/news/ /news.html 301
+
+# --- Preserve old blog slug variants that might be indexed ---
+/blog-blockchain-data-analytics-ai /blog-blockchain-data-analytics-ai.html 301
+
+# --- New knowledge-base canonical structure (if you later move to /blog/slug) ---
+/knowledge-base/* /blog.html 301
+/articles/* /blog.html 301
+
+# --- Fallback: All unknown .html requests that miss should go to 404.html (handled by platform) ---
+# /* /404.html 404

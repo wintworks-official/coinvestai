@@ -1,0 +1,113 @@
+<!-- CoinvestAI — SEO Head Template (Advanced SEO)
+     Usage: Copy this block into <head> of every page and replace placeholders.
+     Compliant with Google & AdSense policies, E-E-A-T, and Core Web Vitals.
+-->
+
+<!-- Consent Mode v2 — MUST load before any Google tag -->
+<script>
+  function __getConsent(){try{return localStorage.getItem('cookieConsent');}catch(e){return null;}}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied'
+  });
+  (function(){
+    var c = __getConsent();
+    if (c === 'granted') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted'
+      });
+    } else {
+      window.adsbygoogle = window.adsbygoogle || {};
+      window.adsbygoogle.requestNonPersonalizedAds = 1;
+    }
+  })();
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPJ3YFPZJY"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-JPJ3YFPZJY');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary Meta — Replace placeholders -->
+<title>{{PAGE_TITLE}} — CoinvestAI</title>
+<meta name="description" content="{{META_DESCRIPTION_150_160_CHARS}}">
+<meta name="keywords" content="{{PRIMARY_KEYWORDS_COMMA_SEPARATED}}">
+<meta name="author" content="CoinvestAI Editorial Team">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="{{CANONICAL_URL}}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="{{OG_TYPE_website_or_article}}">
+<meta property="og:title" content="{{OG_TITLE}}">
+<meta property="og:description" content="{{OG_DESCRIPTION}}">
+<meta property="og:url" content="{{CANONICAL_URL}}">
+<meta property="og:image" content="{{OG_IMAGE_URL_1200x630}}">
+<meta property="og:site_name" content="CoinvestAI">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{TWITTER_TITLE}}">
+<meta name="twitter:description" content="{{TWITTER_DESCRIPTION}}">
+<meta name="twitter:image" content="{{OG_IMAGE_URL}}">
+<meta name="twitter:site" content="@CoinvestAI_HQ">
+
+<!-- Theme & Icons -->
+<meta name="theme-color" content="#0F172A">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+<!-- AdSense ownership verification -->
+<meta name="google-adsense-account" content="ca-pub-7088247829787060">
+
+<!-- AdSense (personalized only after consent) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7088247829787060" crossorigin="anonymous"></script>
+
+<!-- Preconnect for performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Organization + WebSite Schema (include on every page) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"CoinvestAI",
+  "url":"https://coinvestai.com/",
+  "logo":"https://coinvestai.com/logo.png",
+  "foundingDate":"2026",
+  "sameAs":["https://twitter.com/CoinvestAI_HQ"],
+  "contactPoint":{"@type":"ContactPoint","email":"info@coinvestai.com","contactType":"customer support"},
+  "knowsAbout":["Artificial Intelligence in Finance","AI Finance Tools","Algorithmic Analysis","Smart Investing Insights","Quantitative Research","Fintech Automation","Cryptocurrency Intelligence"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"CoinvestAI",
+  "url":"https://coinvestai.com/",
+  "description":"Independent research publication covering AI-powered investing tools, algorithmic analysis, and smart investing insights.",
+  "publisher":{"@type":"Organization","name":"CoinvestAI","logo":{"@type":"ImageObject","url":"https://coinvestai.com/logo.png"}},
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":"https://coinvestai.com/blog.html?q={search_term_string}",
+    "query-input":"required name=search_term_string"
+  }
+}
+</script>

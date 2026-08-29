@@ -3,58 +3,84 @@
   <!-- Core Hub Pages -->
   <url>
     <loc>https://coinvestai.com/</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://coinvestai.com/blog.html</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://coinvestai.com/ai-tools.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://coinvestai.com/reviews.html</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://coinvestai.com/fintech.html</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://coinvestai.com/crypto-ai.html</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://coinvestai.com/guides.html</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://coinvestai.com/news.html</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- NEW Pillar Articles 2026-08-29 (High E-E-A-T) -->
+  <url>
+    <loc>https://coinvestai.com/blog-ai-explainability-finance-2026.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://coinvestai.com/blog-real-time-risk-scoring-ai-2026.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <!-- High-Value Comparative Analyses & Pillar Articles -->
   <url>
     <loc>https://coinvestai.com/best-ai-trading-platforms-compared-2026.html</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://coinvestai.com/blog-open-source-financial-ai-qlib-finrl-2026.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://coinvestai.com/blog-blockchain-data-analytics-ai.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
@@ -72,12 +98,6 @@
   <url>
     <loc>https://coinvestai.com/blog-psychology-long-term-investing.html</loc>
     <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://coinvestai.com/blog-blockchain-data-analytics-ai.html</loc>
-    <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -320,11 +340,5 @@
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url>
-    <url>
-    <loc>https://coinvestai.com/blog-open-source-financial-ai-qlib-finrl-2026.html</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
   </url>
 </urlset>
