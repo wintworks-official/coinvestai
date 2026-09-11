@@ -1,6 +1,6 @@
 # CoinvestAI — Google AdSense & Financial Content Compliance Checklist
 **Last Audit:** 2026-09-11 (full re-audit after «يتطلب عناية» warning)  
-**Status:** ✅ Compliant — **23 PASS / 0 WARN / 0 FAIL** via `python3 seo/adsense-audit.py`  
+**Status:** ✅ Compliant — **24 PASS / 0 WARN / 0 FAIL** via `python3 seo/adsense-audit.py`  
 **Report:** `seo/adsense-fix-report-2026-09-11.md` (full before/after)
 
 ## 0. Automated Audit Gate (run before every deploy)
@@ -36,6 +36,7 @@ files and prints the offending filename for any failure. Do not push while it fa
 | Required trust/legal pages (9) | ✅ all present |
 | Privacy policy covers advertising & cookies | ✅ |
 | 404 page: no ad code, `noindex` | ✅ |
+| `og:image` / `twitter:image` files exist on disk | ✅ all resolve |
 
 ---
 

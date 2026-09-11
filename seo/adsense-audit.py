@@ -161,6 +161,18 @@ h404 = open('404.html').read()
 (ok if 'adsbygoogle' not in h404 else fail).append('404 page carries no ad code')
 (ok if 'noindex' in h404 else warn).append('404 page is noindex')
 
+# ---- 14. og:image / twitter:image must exist on disk --------------------
+# A social/share image that 404s is a broken reference crawlers and share
+# previews will surface; two such references shipped before this check existed.
+missimg = []
+for f in files:
+    h = open(f, encoding='utf-8', errors='replace').read()
+    for m in re.finditer(r'(?:og:image|twitter:image)["\']\s+content="([^"]+)"', h):
+        loc = m.group(1).replace('https://coinvestai.com', '').lstrip('/')
+        if loc and not os.path.exists(loc):
+            missimg.append('%s -> %s' % (f, m.group(1)))
+(ok if not missimg else warn).append('og:image / twitter:image files exist: %s' % (missimg or 'OK'))
+
 print('=' * 78)
 print(' COINVESTAI \u2014 ADSENSE READINESS AUDIT')
 print('=' * 78)
