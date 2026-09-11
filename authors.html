@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- ============================================================
+         CONSENT MODE v2 — loads BEFORE any Google tag.
+         Defaults are DENIED until the visitor explicitly accepts.
+         Without 'granted' consent AdSense is forced into
+         non-personalized mode (requestNonPersonalizedAds = 1), which
+         satisfies the EU User Consent Policy + GDPR / ePrivacy.
+         ============================================================ -->
+    <script>
+      function __getConsent(){try{return localStorage.getItem('cookieConsent');}catch(e){return null;}}
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent','default',{
+        'ad_storage':'denied',
+        'ad_user_data':'denied',
+        'ad_personalization':'denied',
+        'analytics_storage':'denied',
+        'region':['EEA','GB','CH']
+      });
+      (function(){
+        if (__getConsent() === 'granted') {
+          gtag('consent','update',{
+            'ad_storage':'granted',
+            'ad_user_data':'granted',
+            'ad_personalization':'granted',
+            'analytics_storage':'granted'
+          });
+        } else {
+          window.adsbygoogle = window.adsbygoogle || {};
+          window.adsbygoogle.requestNonPersonalizedAds = 1;
+        }
+      })();
+    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPJ3YFPZJY"></script>
     <script>
@@ -100,6 +132,7 @@
         /* Updated contrast color for high accessibility rating */
         .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);margin-top:40px;padding-top:24px;text-align:center;color:rgba(255,255,255,0.75);font-size:14px;}
     </style>
+    <meta name="google-adsense-account" content="ca-pub-7088247829787060">
 </head>
 <body>
 
@@ -123,29 +156,130 @@
 </section>
 
 <div class="authors-section"><div class="container">
+
     <div class="authors-grid">
-        <div class="author-card">
+        <div class="author-card" id="coinvestai-editorial-team">
             <div class="author-avatar">📝</div>
             <h3>CoinvestAI Editorial Team</h3>
             <div class="role">Institutional Research Collective</div>
-            <p>Our collaborative team evaluates AI trading algorithms, quantitative financial platforms, and agentic workflows.</p>
+            <p>Our collaborative byline, used for research produced jointly across desks and for methodology and standards documents. Every piece published under this byline is written by a named analyst and reviewed by a second desk before release.</p>
             <a href="authors-coinvestai-editorial-team.html" class="btn-profile">View Full Profile →</a>
         </div>
-        <div class="author-card">
+        <div class="author-card" id="alexander-vance">
             <div class="author-avatar">📊</div>
+            <h3>Alexander Vance</h3>
+            <div class="role">Lead Quantitative Research Analyst</div>
+            <p>Covers model validation, backtesting methodology, market microstructure, and open-source financial ML frameworks. Focuses on the gap between reported backtest performance and live execution, and on statistical controls for overfitting.</p>
+            <a href="#alexander-vance-work" class="btn-profile">Selected Work ↓</a>
+        </div>
+        <div class="author-card" id="sophia-lin">
+            <div class="author-avatar">🏦</div>
+            <h3>Sophia Lin</h3>
+            <div class="role">Fintech &amp; Wealth Management Editor</div>
+            <p>Covers robo-advisory, digital banking automation, credit modelling, and retail investor education. Writes for readers making their first supervised use of AI-assisted financial tooling, with an emphasis on what the tools cannot do.</p>
+            <a href="#sophia-lin-work" class="btn-profile">Selected Work ↓</a>
+        </div>
+        <div class="author-card" id="quantitative-desk">
+            <div class="author-avatar">📈</div>
             <h3>Quantitative Desk</h3>
             <div class="role">Market Microstructure &amp; ML</div>
-            <p>Experts focused on machine learning portfolio management, high-frequency execution, and statistical arbitrage.</p>
-            <a href="authors-coinvestai-editorial-team.html" class="btn-profile">View Research Archive →</a>
+            <p>A group byline for work on machine-learning portfolio construction, execution algorithms, and statistical arbitrage research, produced jointly by the quantitative analysts below.</p>
+            <a href="#quant-desk-work" class="btn-profile">Desk Coverage ↓</a>
         </div>
-        <div class="author-card">
+        <div class="author-card" id="fintech-security-desk">
             <div class="author-avatar">🛡️</div>
             <h3>Fintech Security Desk</h3>
             <div class="role">DeFi Risk &amp; Compliance</div>
-            <p>Specialists focused on decentralized protocol risks, AI-driven fraud detection, and regulatory compliance.</p>
-            <a href="authors-coinvestai-editorial-team.html" class="btn-profile">View Research Archive →</a>
+            <p>Group byline covering decentralised protocol risk, fraud detection engineering, smart-contract security, and AI regulatory compliance across the EU, US, and UK frameworks.</p>
+            <a href="#security-desk-work" class="btn-profile">Desk Coverage ↓</a>
+        </div>
+        <div class="author-card" id="crypto-research-desk">
+            <div class="author-avatar">⛓️</div>
+            <h3>Crypto Research Desk</h3>
+            <div class="role">On-Chain Analytics &amp; Protocol Intelligence</div>
+            <p>Group byline for on-chain analytics, MEV and market-structure research, cross-chain interoperability risk, and stablecoin infrastructure coverage.</p>
+            <a href="#crypto-desk-work" class="btn-profile">Desk Coverage ↓</a>
         </div>
     </div>
+
+    <div style="margin-top:56px">
+        <h2 style="font-size:28px;margin-bottom:14px">How We Assign Bylines</h2>
+        <p style="max-width:820px;color:rgba(255,255,255,0.62);line-height:1.75;margin-bottom:18px">CoinvestAI publishes under two kinds of byline, and we are explicit about which is which because it affects how much weight a reader should give a single name.</p>
+        <p style="max-width:820px;color:rgba(255,255,255,0.62);line-height:1.75;margin-bottom:18px"><strong style="color:#fff">Named bylines</strong> identify an individual analyst who researched and drafted the piece, and who is accountable for its claims. Named bylines carry a listed coverage area, and analysts only write inside it.</p>
+        <p style="max-width:820px;color:rgba(255,255,255,0.62);line-height:1.75;margin-bottom:18px"><strong style="color:#fff">Desk bylines</strong> identify work produced collaboratively \u2014 comparative platform testing, methodology documents, and research that requires more than one specialism. Desk pieces still have a named author and a named reviewer internally; the desk byline reflects shared accountability for the result rather than anonymity.</p>
+        <p style="max-width:820px;color:rgba(255,255,255,0.62);line-height:1.75">Every article, regardless of byline, is reviewed under our <a href="review-methodology.html" style="color:#7da7ff">7-factor methodology</a> and produced according to our <a href="editorial-guidelines.html" style="color:#7da7ff">editorial guidelines</a>, including the correction policy and the disclosure of any commercial relationship with a vendor named in the piece.</p>
+    </div>
+
+    <div style="margin-top:56px" id="alexander-vance-work">
+        <h2 style="font-size:26px;margin-bottom:6px">Alexander Vance — Selected Work</h2>
+        <p style="color:rgba(255,255,255,0.55);margin-bottom:18px;font-size:15px">Quantitative methodology, validation, and market microstructure.</p>
+        <ul style="list-style:none;padding:0;max-width:820px">
+            <li style="margin-bottom:10px"><a href="blog-backtesting-ai-trading-strategies.html" style="color:#7da7ff;text-decoration:none">Backtesting AI Trading Strategies: Complete Guide</a> <span style="color:rgba(255,255,255,0.45);font-size:14px">— bias elimination, purged cross-validation, overfitting detection</span></li>
+            <li style="margin-bottom:10px"><a href="blog-evaluate-ai-trading-platforms.html" style="color:#7da7ff;text-decoration:none">How to Evaluate AI Trading Platforms: A 7-Factor Framework</a></li>
+            <li style="margin-bottom:10px"><a href="blog-open-source-financial-ai-qlib-finrl-2026.html" style="color:#7da7ff;text-decoration:none">Open-Source Financial AI: Qlib and FinRL</a></li>
+            <li style="margin-bottom:10px"><a href="blog-real-time-risk-scoring-ai-2026.html" style="color:#7da7ff;text-decoration:none">Real-Time Risk Scoring with AI</a></li>
+            <li style="margin-bottom:10px"><a href="blog-ml-portfolio-management.html" style="color:#7da7ff;text-decoration:none">Machine Learning in Portfolio Management</a></li>
+            <li style="margin-bottom:10px"><a href="blog-ai-crypto-trading-algorithms.html" style="color:#7da7ff;text-decoration:none">AI Crypto Trading Algorithms</a></li>
+        </ul>
+    </div>
+
+    <div style="margin-top:44px" id="sophia-lin-work">
+        <h2 style="font-size:26px;margin-bottom:6px">Sophia Lin — Selected Work</h2>
+        <p style="color:rgba(255,255,255,0.55);margin-bottom:18px;font-size:15px">Fintech, wealth management, and investor education.</p>
+        <ul style="list-style:none;padding:0;max-width:820px">
+            <li style="margin-bottom:10px"><a href="blog-beginners-guide-ai-investing.html" style="color:#7da7ff;text-decoration:none">Beginner's Guide to AI Investing</a></li>
+            <li style="margin-bottom:10px"><a href="blog-robo-advisors-ai-investment.html" style="color:#7da7ff;text-decoration:none">Robo-Advisors and AI Investment Management</a></li>
+            <li style="margin-bottom:10px"><a href="blog-ai-digital-banking-automation.html" style="color:#7da7ff;text-decoration:none">AI and Digital Banking Automation</a></li>
+            <li style="margin-bottom:10px"><a href="blog-psychology-long-term-investing.html" style="color:#7da7ff;text-decoration:none">The Psychology of Long-Term Investing</a></li>
+            <li style="margin-bottom:10px"><a href="blog-ai-credit-underwriting.html" style="color:#7da7ff;text-decoration:none">Machine Learning in Credit Underwriting (2026)</a></li>
+            <li style="margin-bottom:10px"><a href="blog-ai-native-financial-services.html" style="color:#7da7ff;text-decoration:none">AI-Native Financial Services</a></li>
+        </ul>
+    </div>
+
+    <div style="margin-top:44px" id="quant-desk-work">
+        <h2 style="font-size:26px;margin-bottom:6px">Quantitative Desk — Coverage</h2>
+        <p style="color:rgba(255,255,255,0.55);margin-bottom:18px;font-size:15px">Model design, validation, and execution research.</p>
+        <ul style="list-style:none;padding:0;max-width:820px">
+            <li style="margin-bottom:10px"><a href="best-ai-trading-platforms-compared-2026.html" style="color:#7da7ff;text-decoration:none">Best AI Trading Platforms Compared (2026)</a></li>
+            <li style="margin-bottom:10px"><a href="blog-ml-crypto-market-analysis.html" style="color:#7da7ff;text-decoration:none">ML Applications in Crypto Market Analysis</a></li>
+            <li style="margin-bottom:10px"><a href="blog-nlp-financial-document-analysis.html" style="color:#7da7ff;text-decoration:none">NLP for Financial Document Analysis</a></li>
+            <li style="margin-bottom:10px"><a href="blog-alternative-data-investing.html" style="color:#7da7ff;text-decoration:none">Alternative Data in Equity Research (2026)</a></li>
+            <li style="margin-bottom:10px"><a href="blog-ai-explainability-finance-2026.html" style="color:#7da7ff;text-decoration:none">Explainable AI in Finance (2026)</a></li>
+        </ul>
+    </div>
+
+    <div style="margin-top:44px" id="security-desk-work">
+        <h2 style="font-size:26px;margin-bottom:6px">Fintech Security Desk — Coverage</h2>
+        <p style="color:rgba(255,255,255,0.55);margin-bottom:18px;font-size:15px">Financial crime, protocol risk, and regulatory compliance.</p>
+        <ul style="list-style:none;padding:0;max-width:820px">
+            <li style="margin-bottom:10px"><a href="blog-ai-fraud-detection-banking.html" style="color:#7da7ff;text-decoration:none">AI Fraud Detection in Banking &amp; Fintech</a></li>
+            <li style="margin-bottom:10px"><a href="blog-ai-fraud-detection-finance.html" style="color:#7da7ff;text-decoration:none">AI Fraud Detection &amp; Security in Financial Services</a></li>
+            <li style="margin-bottom:10px"><a href="blog-smart-contract-security-ai.html" style="color:#7da7ff;text-decoration:none">Smart Contract Security Auditing with AI</a></li>
+            <li style="margin-bottom:10px"><a href="blog-ai-risk-management-defi-2026.html" style="color:#7da7ff;text-decoration:none">AI Risk Management in DeFi Protocols (2026)</a></li>
+            <li style="margin-bottom:10px"><a href="blog-ai-regulatory-compliance-finance.html" style="color:#7da7ff;text-decoration:none">AI Regulatory Compliance in Finance (2026)</a></li>
+            <li style="margin-bottom:10px"><a href="blog-generative-ai-corporate-financial-auditing.html" style="color:#7da7ff;text-decoration:none">Generative AI in Corporate Financial Auditing</a></li>
+        </ul>
+    </div>
+
+    <div style="margin-top:44px" id="crypto-desk-work">
+        <h2 style="font-size:26px;margin-bottom:6px">Crypto Research Desk — Coverage</h2>
+        <p style="color:rgba(255,255,255,0.55);margin-bottom:18px;font-size:15px">On-chain analytics, market structure, and interoperability.</p>
+        <ul style="list-style:none;padding:0;max-width:820px">
+            <li style="margin-bottom:10px"><a href="blog-blockchain-data-analytics-ai.html" style="color:#7da7ff;text-decoration:none">Blockchain Data Analytics with AI</a></li>
+            <li style="margin-bottom:10px"><a href="blog-ai-mev-detection-crypto.html" style="color:#7da7ff;text-decoration:none">AI-Powered MEV Detection &amp; Prevention</a></li>
+            <li style="margin-bottom:10px"><a href="blog-ai-cross-chain-analytics.html" style="color:#7da7ff;text-decoration:none">Cross-Chain Analytics with AI (2026)</a></li>
+            <li style="margin-bottom:10px"><a href="blog-ai-driven-crypto-insights.html" style="color:#7da7ff;text-decoration:none">AI-Driven Crypto Insights</a></li>
+            <li style="margin-bottom:10px"><a href="blog-stablecoins-business-ledgers.html" style="color:#7da7ff;text-decoration:none">Stablecoins and Business Ledgers</a></li>
+        </ul>
+    </div>
+
+    <div style="margin-top:56px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:26px 28px;max-width:820px">
+        <h2 style="font-size:22px;margin-bottom:12px">⚠️ Editorial Independence &amp; Disclosure</h2>
+        <p style="color:rgba(255,255,255,0.66);line-height:1.75;margin-bottom:14px;font-size:15px">No vendor named on this site pays for coverage, for a score, or for placement. Where an affiliate or commercial relationship exists it is disclosed inside the article concerned and in our <a href="editorial-guidelines.html" style="color:#7da7ff">editorial guidelines</a>. Scores are produced by the <a href="review-methodology.html" style="color:#7da7ff">7-factor methodology</a> and cannot be purchased or negotiated.</p>
+        <p style="color:rgba(255,255,255,0.66);line-height:1.75;margin-bottom:14px;font-size:15px">Corrections are published on the article itself with the date and substance of the change, not silently applied. To report an error or a conflict of interest, use our <a href="contact.html" style="color:#7da7ff">contact page</a>.</p>
+        <p style="color:rgba(255,255,255,0.66);line-height:1.75;font-size:15px"><strong style="color:#fff">Not financial advice.</strong> Everything published by every byline on this page is educational and research content. It is not personalised financial, investment, legal, or tax advice, and it does not take your circumstances into account. See our full <a href="disclaimer.html" style="color:#7da7ff">risk disclaimer</a>.</p>
+    </div>
+
 </div></div>
 
 <footer class="footer"><div class="container"><div class="footer-grid">
@@ -154,6 +288,63 @@
     <div><h3>Topics</h3><ul><li><a href="fintech.html">Fintech AI</a></li><li><a href="crypto-ai.html">Crypto AI</a></li><li><a href="authors.html">Authors</a></li></ul></div>
     <div><h3>Company</h3><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="editorial-guidelines.html">Editorial Guidelines</a></li><li><a href="review-methodology.html">Review Methodology</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li></ul></div>
 </div><div class="footer-bottom">© 2026 CoinvestAI. All rights reserved.</div></div></footer>
+
+<!-- ===== GDPR / ePrivacy cookie consent banner (pairs with Consent Mode v2 in the document head) ===== -->
+<style>
+.cva-consent{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:none;
+  padding:16px 16px 20px;background:linear-gradient(160deg,#0F172A,#1e293b);
+  border-top:1px solid rgba(255,255,255,.12);box-shadow:0 -10px 40px rgba(0,0,0,.35);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+.cva-consent.show{display:block}
+.cva-consent-inner{max-width:1100px;margin:0 auto;display:flex;gap:20px;align-items:center;
+  justify-content:space-between;flex-wrap:wrap}
+.cva-consent-text{color:rgba(255,255,255,.78);font-size:13px;line-height:1.65;max-width:660px;margin:0}
+.cva-consent-text a{color:#7da7ff;text-decoration:underline}
+.cva-consent-btns{display:flex;gap:10px;flex-wrap:wrap}
+.cva-consent-btns button{border-radius:10px;padding:11px 22px;font-size:14px;font-weight:600;
+  cursor:pointer;font-family:inherit;transition:background .2s,border-color .2s,color .2s}
+.cva-accept{background:#2563EB;color:#fff;border:1px solid #2563EB}
+.cva-accept:hover{background:#1d4ed8;border-color:#1d4ed8}
+.cva-reject{background:transparent;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.35)}
+.cva-reject:hover{border-color:rgba(255,255,255,.7);color:#fff}
+@media(max-width:768px){.cva-consent-inner{flex-direction:column;align-items:flex-start}
+  .cva-consent-btns button{flex:1 1 auto}}
+</style>
+<div class="cva-consent" id="cvaConsentBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cva-consent-inner">
+    <p class="cva-consent-text">🍪 We use cookies to serve contextual advertising, measure site traffic, and improve your experience. With your consent, ads and analytics may be personalized. You can change your choice at any time — see our <a href="/cookie-policy.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+    <div class="cva-consent-btns">
+      <button type="button" class="cva-accept" id="cvaAccept">Accept all cookies</button>
+      <button type="button" class="cva-reject" id="cvaReject">Essential only</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  function store(v){try{localStorage.setItem('cookieConsent',v);}catch(e){}}
+  function update(v){
+    var g = v === 'granted';
+    var s = g ? 'granted' : 'denied';
+    if (typeof gtag === 'function') {
+      gtag('consent','update',{ad_storage:s,ad_user_data:s,ad_personalization:s,analytics_storage:s});
+    }
+    window.adsbygoogle = window.adsbygoogle || {};
+    window.adsbygoogle.requestNonPersonalizedAds = g ? 0 : 1;
+    var b = document.getElementById('cvaConsentBanner');
+    if (b) b.classList.remove('show');
+  }
+  window.setCookieConsent = function(v){ store(v); update(v); };
+  window.resetCookieConsent = function(){ try{localStorage.removeItem('cookieConsent');}catch(e){} location.reload(); };
+  var a = document.getElementById('cvaAccept'), r = document.getElementById('cvaReject');
+  if (a) a.addEventListener('click', function(){ window.setCookieConsent('granted'); });
+  if (r) r.addEventListener('click', function(){ window.setCookieConsent('denied'); });
+  var c = null; try { c = localStorage.getItem('cookieConsent'); } catch(e){}
+  if (c !== 'granted' && c !== 'denied') {
+    var b = document.getElementById('cvaConsentBanner');
+    if (b) b.classList.add('show');
+  }
+})();
+</script>
 
 </body>
 </html>

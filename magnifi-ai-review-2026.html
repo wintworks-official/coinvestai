@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+    <!-- ============================================================
+         CONSENT MODE v2 — loads BEFORE any Google tag.
+         Defaults are DENIED until the visitor explicitly accepts.
+         Without 'granted' consent AdSense is forced into
+         non-personalized mode (requestNonPersonalizedAds = 1), which
+         satisfies the EU User Consent Policy + GDPR / ePrivacy.
+         ============================================================ -->
+    <script>
+      function __getConsent(){try{return localStorage.getItem('cookieConsent');}catch(e){return null;}}
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent','default',{
+        'ad_storage':'denied',
+        'ad_user_data':'denied',
+        'ad_personalization':'denied',
+        'analytics_storage':'denied',
+        'region':['EEA','GB','CH']
+      });
+      (function(){
+        if (__getConsent() === 'granted') {
+          gtag('consent','update',{
+            'ad_storage':'granted',
+            'ad_user_data':'granted',
+            'ad_personalization':'granted',
+            'analytics_storage':'granted'
+          });
+        } else {
+          window.adsbygoogle = window.adsbygoogle || {};
+          window.adsbygoogle.requestNonPersonalizedAds = 1;
+        }
+      })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="An independent, unbiased review of Magnifi AI investment research platform. Educational content only. CoinvestAI.com does not provide financial advice or investment recommendations.">
@@ -181,7 +213,7 @@
                 "@type": "ListItem",
                 "position": 2,
                 "name": "AI Tools Reviews",
-                "item": "https://coinvestai.com/ai-tools-reviews"
+                "item": "https://coinvestai.com/reviews.html"
             },
             {
                 "@type": "ListItem",
@@ -806,6 +838,9 @@
             }
         }
     </style>
+    <meta name="google-adsense-account" content="ca-pub-7088247829787060">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPJ3YFPZJY"></script>
+    <script>gtag("js", new Date()); gtag("config", "G-JPJ3YFPZJY", {anonymize_ip:true});</script>
 </head>
 
 <body>
@@ -837,7 +872,7 @@
         <!-- Breadcrumb -->
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="https://coinvestai.com">Home</a> &raquo;
-            <a href="https://coinvestai.com/ai-tools-reviews">AI Tools Reviews</a> &raquo;
+            <a href="https://coinvestai.com/reviews.html">AI Tools Reviews</a> &raquo;
             Magnifi AI Review 2026
         </nav>
 
@@ -901,19 +936,7 @@
             <strong>Platform Link:</strong> <a href="https://magnifi.com" target="_blank" rel="nofollow noopener noreferrer">https://magnifi.com</a> — Inclusion of this link is for reference only and does not constitute an endorsement.
         </div>
 
-        <!-- In-Article Ad Banner -->
-        <div class="ad-slot">
-            <div class="ad-label">Advertisement</div>
-            <ins class="adsbygoogle"
-                 style="display:block; text-align:center;"
-                 data-ad-layout="in-article"
-                 data-ad-format="fluid"
-                 data-ad-client="ca-pub-7088247829787060"
-                 data-ad-slot="1234567890"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-
-        <!-- Section 2 -->
+<!-- Section 2 -->
         <h2 id="company-background">Company Background</h2>
         <p>
             Magnifi was developed by TIFIN Group, a financial technology company headquartered in Boulder, Colorado, United States. TIFIN was founded by Vinay Nair, who previously held academic positions in finance and has been involved in several fintech ventures. The company has received funding from a number of venture capital firms and strategic investors over the years, though specific funding details change over time and should be verified through current sources.
@@ -1519,7 +1542,6 @@
         </div>
 
     </div>
-</main>
 
 <!-- Comments Section -->
 <section class="comments-section">
@@ -1537,6 +1559,7 @@
         ></div>
         <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
     </div>
+</section>
 </main>
 
 <!-- Dark Mode Script -->
@@ -1609,6 +1632,63 @@
         <p>&copy; 2026 CoinvestAI.com — Educational Content Only — Not Financial Advice</p>
     </div>
 </footer>
+
+<!-- ===== GDPR / ePrivacy cookie consent banner (pairs with Consent Mode v2 in the document head) ===== -->
+<style>
+.cva-consent{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:none;
+  padding:16px 16px 20px;background:linear-gradient(160deg,#0F172A,#1e293b);
+  border-top:1px solid rgba(255,255,255,.12);box-shadow:0 -10px 40px rgba(0,0,0,.35);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+.cva-consent.show{display:block}
+.cva-consent-inner{max-width:1100px;margin:0 auto;display:flex;gap:20px;align-items:center;
+  justify-content:space-between;flex-wrap:wrap}
+.cva-consent-text{color:rgba(255,255,255,.78);font-size:13px;line-height:1.65;max-width:660px;margin:0}
+.cva-consent-text a{color:#7da7ff;text-decoration:underline}
+.cva-consent-btns{display:flex;gap:10px;flex-wrap:wrap}
+.cva-consent-btns button{border-radius:10px;padding:11px 22px;font-size:14px;font-weight:600;
+  cursor:pointer;font-family:inherit;transition:background .2s,border-color .2s,color .2s}
+.cva-accept{background:#2563EB;color:#fff;border:1px solid #2563EB}
+.cva-accept:hover{background:#1d4ed8;border-color:#1d4ed8}
+.cva-reject{background:transparent;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.35)}
+.cva-reject:hover{border-color:rgba(255,255,255,.7);color:#fff}
+@media(max-width:768px){.cva-consent-inner{flex-direction:column;align-items:flex-start}
+  .cva-consent-btns button{flex:1 1 auto}}
+</style>
+<div class="cva-consent" id="cvaConsentBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cva-consent-inner">
+    <p class="cva-consent-text">🍪 We use cookies to serve contextual advertising, measure site traffic, and improve your experience. With your consent, ads and analytics may be personalized. You can change your choice at any time — see our <a href="/cookie-policy.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+    <div class="cva-consent-btns">
+      <button type="button" class="cva-accept" id="cvaAccept">Accept all cookies</button>
+      <button type="button" class="cva-reject" id="cvaReject">Essential only</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  function store(v){try{localStorage.setItem('cookieConsent',v);}catch(e){}}
+  function update(v){
+    var g = v === 'granted';
+    var s = g ? 'granted' : 'denied';
+    if (typeof gtag === 'function') {
+      gtag('consent','update',{ad_storage:s,ad_user_data:s,ad_personalization:s,analytics_storage:s});
+    }
+    window.adsbygoogle = window.adsbygoogle || {};
+    window.adsbygoogle.requestNonPersonalizedAds = g ? 0 : 1;
+    var b = document.getElementById('cvaConsentBanner');
+    if (b) b.classList.remove('show');
+  }
+  window.setCookieConsent = function(v){ store(v); update(v); };
+  window.resetCookieConsent = function(){ try{localStorage.removeItem('cookieConsent');}catch(e){} location.reload(); };
+  var a = document.getElementById('cvaAccept'), r = document.getElementById('cvaReject');
+  if (a) a.addEventListener('click', function(){ window.setCookieConsent('granted'); });
+  if (r) r.addEventListener('click', function(){ window.setCookieConsent('denied'); });
+  var c = null; try { c = localStorage.getItem('cookieConsent'); } catch(e){}
+  if (c !== 'granted' && c !== 'denied') {
+    var b = document.getElementById('cvaConsentBanner');
+    if (b) b.classList.add('show');
+  }
+})();
+</script>
 
 </body>
 </html>

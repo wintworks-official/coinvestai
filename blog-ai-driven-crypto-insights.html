@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- ============================================================
+         CONSENT MODE v2 — loads BEFORE any Google tag.
+         Defaults are DENIED until the visitor explicitly accepts.
+         Without 'granted' consent AdSense is forced into
+         non-personalized mode (requestNonPersonalizedAds = 1), which
+         satisfies the EU User Consent Policy + GDPR / ePrivacy.
+         ============================================================ -->
+    <script>
+      function __getConsent(){try{return localStorage.getItem('cookieConsent');}catch(e){return null;}}
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent','default',{
+        'ad_storage':'denied',
+        'ad_user_data':'denied',
+        'ad_personalization':'denied',
+        'analytics_storage':'denied',
+        'region':['EEA','GB','CH']
+      });
+      (function(){
+        if (__getConsent() === 'granted') {
+          gtag('consent','update',{
+            'ad_storage':'granted',
+            'ad_user_data':'granted',
+            'ad_personalization':'granted',
+            'analytics_storage':'granted'
+          });
+        } else {
+          window.adsbygoogle = window.adsbygoogle || {};
+          window.adsbygoogle.requestNonPersonalizedAds = 1;
+        }
+      })();
+    </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI-Driven Crypto Insights: Navigating the 2026 Market Volatility — CoinvestAI</title>
@@ -123,6 +155,9 @@
     margin-bottom:8px;
   }
 </style>
+    <meta name="google-adsense-account" content="ca-pub-7088247829787060">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPJ3YFPZJY"></script>
+    <script>gtag("js", new Date()); gtag("config", "G-JPJ3YFPZJY", {anonymize_ip:true});</script>
 </head>
 <body>
 
@@ -180,16 +215,7 @@
   <article>
     <p>The cryptocurrency market in 2026 demands unprecedented speed, precision, and data processing capability. As market microstructure becomes increasingly complex — spanning spot exchanges, perpetual futures, decentralized liquidity pools, and cross-chain bridges — retail and institutional traders are turning to AI-driven intelligence platforms to transform chaotic, 24/7 data streams into structured, actionable market insights. This guide expands on the core building blocks of AI-driven crypto analysis, how the underlying models are constructed, where they tend to fail, and how a disciplined trader can incorporate AI signals into a broader risk framework rather than treating them as a substitute for judgment.</p>
 
-    <div class="ad-slot">
-      <div class="ad-label">Advertisement</div>
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-7088247829787060"
-           data-ad-slot="1234567890"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    
 
     <h2 id="s1">1. The Evolution of AI in Crypto Intelligence</h2>
     <p>Traditional technical indicators — moving averages, RSI, MACD — were designed for slower-moving, single-venue markets with defined trading hours. Crypto trades continuously across dozens of venues at once, and price discovery increasingly happens off exchange, in derivatives markets, or even on-chain before it shows up on a spot order book. Traditional indicators often lag during rapid regime shifts because they are backward-looking by construction: they summarize what has already happened rather than what is currently forming.</p>
@@ -242,16 +268,7 @@
     <h4>Signal generation and human oversight</h4>
     <p>The final output is usually a probability or confidence score rather than a binary buy/sell instruction. Well-designed platforms surface this uncertainty explicitly (for example, "62% probability of continued upside over the next 24 hours based on current conditions") rather than presenting predictions as certainties, and leave the final decision — and its risk — with the user.</p>
 
-    <div class="ad-slot">
-      <div class="ad-label">Advertisement</div>
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-7088247829787060"
-           data-ad-slot="1234567890"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    
 
     <h2 id="s6">6. AI Tools and Platforms in Practice</h2>
     <p>The current AI-driven crypto intelligence landscape can be grouped into a few broad categories:</p>
@@ -316,16 +333,7 @@
       <dt>Volatility targeting</dt><dd>A position-sizing approach that adjusts exposure inversely to predicted or realized volatility.</dd>
     </dl>
 
-    <div class="ad-slot">
-      <div class="ad-label">Advertisement</div>
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-7088247829787060"
-           data-ad-slot="1234567890"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    
 
     <h2 id="faq">FAQ</h2>
     <details>
@@ -418,6 +426,63 @@
   </div>
   <div class="copyright">© 2026 CoinvestAI. All rights reserved.</div>
 </footer>
+
+<!-- ===== GDPR / ePrivacy cookie consent banner (pairs with Consent Mode v2 in the document head) ===== -->
+<style>
+.cva-consent{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:none;
+  padding:16px 16px 20px;background:linear-gradient(160deg,#0F172A,#1e293b);
+  border-top:1px solid rgba(255,255,255,.12);box-shadow:0 -10px 40px rgba(0,0,0,.35);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+.cva-consent.show{display:block}
+.cva-consent-inner{max-width:1100px;margin:0 auto;display:flex;gap:20px;align-items:center;
+  justify-content:space-between;flex-wrap:wrap}
+.cva-consent-text{color:rgba(255,255,255,.78);font-size:13px;line-height:1.65;max-width:660px;margin:0}
+.cva-consent-text a{color:#7da7ff;text-decoration:underline}
+.cva-consent-btns{display:flex;gap:10px;flex-wrap:wrap}
+.cva-consent-btns button{border-radius:10px;padding:11px 22px;font-size:14px;font-weight:600;
+  cursor:pointer;font-family:inherit;transition:background .2s,border-color .2s,color .2s}
+.cva-accept{background:#2563EB;color:#fff;border:1px solid #2563EB}
+.cva-accept:hover{background:#1d4ed8;border-color:#1d4ed8}
+.cva-reject{background:transparent;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.35)}
+.cva-reject:hover{border-color:rgba(255,255,255,.7);color:#fff}
+@media(max-width:768px){.cva-consent-inner{flex-direction:column;align-items:flex-start}
+  .cva-consent-btns button{flex:1 1 auto}}
+</style>
+<div class="cva-consent" id="cvaConsentBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cva-consent-inner">
+    <p class="cva-consent-text">🍪 We use cookies to serve contextual advertising, measure site traffic, and improve your experience. With your consent, ads and analytics may be personalized. You can change your choice at any time — see our <a href="/cookie-policy.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+    <div class="cva-consent-btns">
+      <button type="button" class="cva-accept" id="cvaAccept">Accept all cookies</button>
+      <button type="button" class="cva-reject" id="cvaReject">Essential only</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  function store(v){try{localStorage.setItem('cookieConsent',v);}catch(e){}}
+  function update(v){
+    var g = v === 'granted';
+    var s = g ? 'granted' : 'denied';
+    if (typeof gtag === 'function') {
+      gtag('consent','update',{ad_storage:s,ad_user_data:s,ad_personalization:s,analytics_storage:s});
+    }
+    window.adsbygoogle = window.adsbygoogle || {};
+    window.adsbygoogle.requestNonPersonalizedAds = g ? 0 : 1;
+    var b = document.getElementById('cvaConsentBanner');
+    if (b) b.classList.remove('show');
+  }
+  window.setCookieConsent = function(v){ store(v); update(v); };
+  window.resetCookieConsent = function(){ try{localStorage.removeItem('cookieConsent');}catch(e){} location.reload(); };
+  var a = document.getElementById('cvaAccept'), r = document.getElementById('cvaReject');
+  if (a) a.addEventListener('click', function(){ window.setCookieConsent('granted'); });
+  if (r) r.addEventListener('click', function(){ window.setCookieConsent('denied'); });
+  var c = null; try { c = localStorage.getItem('cookieConsent'); } catch(e){}
+  if (c !== 'granted' && c !== 'denied') {
+    var b = document.getElementById('cvaConsentBanner');
+    if (b) b.classList.add('show');
+  }
+})();
+</script>
 
 </body>
 </html>

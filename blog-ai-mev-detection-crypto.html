@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent Mode v2 — must precede every Google tag -->
+<script>
+  function __getConsent(){try{return localStorage.getItem('cookieConsent');}catch(e){return null;}}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{
+    'ad_storage':'denied','ad_user_data':'denied',
+    'ad_personalization':'denied','analytics_storage':'denied',
+    'region':['EEA','GB','CH']
+  });
+  (function(){
+    if (__getConsent() === 'granted') {
+      gtag('consent','update',{'ad_storage':'granted','ad_user_data':'granted',
+        'ad_personalization':'granted','analytics_storage':'granted'});
+    } else {
+      window.adsbygoogle = window.adsbygoogle || {};
+      window.adsbygoogle.requestNonPersonalizedAds = 1;
+    }
+  })();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPJ3YFPZJY"></script>
+<script>gtag('js', new Date()); gtag('config', 'G-JPJ3YFPZJY', {anonymize_ip:true});</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Powered MEV Detection & Prevention: Sandwich Attacks and Order Flow (2026) — CoinvestAI</title>
+<meta name="description" content="How AI systems detect and mitigate maximal extractable value, sandwich attacks, and front-running in decentralized exchanges — with private order flow and PBS explained.">
+<meta name="keywords" content="MEV detection, sandwich attack prevention, private order flow, proposer builder separation, front-running, DEX slippage, encrypted mempool">
+<meta name="author" content="CoinvestAI Editorial Team">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://coinvestai.com/blog-ai-mev-detection-crypto.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI-Powered MEV Detection & Prevention: Sandwich Attacks and Order Flow (2026)">
+<meta property="og:description" content="A technical breakdown of MEV detection and mitigation in DEX environments: PBS, private order flow, encrypted mempools, and the ML signals that reveal sandwich attacks.">
+<meta property="og:url" content="https://coinvestai.com/blog-ai-mev-detection-crypto.html">
+<meta property="og:image" content="https://coinvestai.com/images/crypto-ai-og-2026.jpg">
+<meta property="og:site_name" content="CoinvestAI">
+<meta property="article:published_time" content="2026-09-11">
+<meta property="article:modified_time" content="2026-09-11">
+<meta property="article:section" content="Crypto AI">
+<meta property="article:author" content="CoinvestAI Editorial Team">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI-Powered MEV Detection & Prevention: Sandwich Attacks and Order Flow (2026)">
+<meta name="twitter:description" content="A technical breakdown of MEV detection and mitigation in DEX environments: PBS, private order flow, encrypted mempools, and the ML signals that reveal sandwich attacks.">
+<meta name="twitter:site" content="@CoinvestAI_HQ">
+
+<meta name="theme-color" content="#0F172A">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<meta name="google-adsense-account" content="ca-pub-7088247829787060">
+<!-- Google AdSense — Auto Ads (single loader per page; no manual ad units) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7088247829787060" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- FAQ structured data mirrors the visible on-page answers verbatim (Google requirement) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "CoinvestAI",
+  "url": "https://coinvestai.com/",
+  "logo": "https://coinvestai.com/logo.png",
+  "foundingDate": "2026",
+  "sameAs": [
+    "https://twitter.com/CoinvestAI_HQ"
+  ],
+  "knowsAbout": [
+    "Maximal Extractable Value",
+    "Market Microstructure",
+    "Decentralized Exchange Design",
+    "Order Flow Analytics",
+    "On-Chain Analytics"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CoinvestAI",
+  "url": "https://coinvestai.com/",
+  "description": "Independent research on AI finance tools, algorithmic analysis, and smart investing insights.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "CoinvestAI",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://coinvestai.com/logo.png"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://coinvestai.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://coinvestai.com/blog.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Crypto AI",
+      "item": "https://coinvestai.com/crypto-ai.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "AI-Powered MEV Detection & Prevention"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "AI-Powered MEV Detection & Prevention: Sandwich Attacks and Order Flow (2026)",
+  "description": "How AI systems detect and mitigate maximal extractable value, sandwich attacks, and front-running in decentralized exchanges — with private order flow and PBS explained.",
+  "image": "https://coinvestai.com/images/crypto-ai-og-2026.jpg",
+  "author": {
+    "@type": "Organization",
+    "name": "CoinvestAI Editorial Team",
+    "url": "https://coinvestai.com/authors-coinvestai-editorial-team.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CoinvestAI",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://coinvestai.com/logo.png"
+    }
+  },
+  "datePublished": "2026-09-11",
+  "dateModified": "2026-09-11",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://coinvestai.com/blog-ai-mev-detection-crypto.html"
+  },
+  "keywords": "MEV detection, sandwich attack prevention, private order flow, proposer builder separation, front-running, DEX slippage, encrypted mempool",
+  "articleSection": "Crypto AI",
+  "wordCount": "2597",
+  "timeRequired": "PT14M",
+  "isAccessibleForFree": true,
+  "proficiencyLevel": "Advanced",
+  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a sandwich attack in simple terms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A sandwich attack happens when someone sees your pending swap in the public mempool, buys the token you are about to buy immediately before you (pushing the price up), lets your trade execute at that worse price, then sells immediately after you at the higher price. Your slippage tolerance sets the ceiling on how much they can extract, which is why a loose tolerance makes you a target and a tight one makes the attack unprofitable after gas costs. Private transaction relays prevent it by never letting the attacker see your order at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does using a private RPC endpoint have downsides?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and they are worth understanding rather than ignoring. You are trusting the relay operator and the builders it forwards to with your order flow — they see it even though public searchers do not. Private flow also reduces overall mempool transparency, which has market-quality implications beyond your own trades. Finally, because a small number of builders process most private order flow, widespread adoption increases centralization in block production. For most retail swaps the protection outweighs these concerns, but it is a trust trade, not a free upgrade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can AI fully prevent MEV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Detection and routing can substantially reduce a specific user's exposure, and protocol-level designs such as batch auctions or encrypted mempools can eliminate ordering value for the transactions they cover. But MEV arises from the interaction of a transparent mempool, deterministic execution, and an auction for block space. As long as those properties hold for some order flow, extraction from that flow remains possible. Liquidation and arbitrage MEV are also functions the market needs performed, so total elimination is not even the goal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if my transaction was sandwiched?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Compare the price you actually received with the price the pool would have given you against the state immediately before your transaction, with no intervening trades. If your loss exceeds what pure price impact from your own size explains, and two opposite-direction swaps by other addresses bracket yours in the same block, you were sandwiched. Public MEV explorers surface the canonical cases automatically, but partial and cross-block sandwiches require state-fork simulation and graph-based address clustering to detect reliably."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is all MEV harmful to markets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, and this distinction matters for both policy and engineering. Arbitrage that equalizes prices between pools and liquidations that keep lending protocols solvent are both MEV, and both perform necessary market functions — suppressing them would degrade protocol health. The harmful subset is extractive MEV that transfers value directly from an uninformed counterparty, principally sandwiching and just-in-time liquidity that displaces passive providers. Detection systems should classify events into these categories because the correct response differs completely between them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I set my slippage tolerance as low as possible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Set it as low as reliably fills, not as low as theoretically possible. Too-tight tolerance on an illiquid pair or during volatility causes failed transactions and wasted gas, and it can force you to retry at a worse moment. The right approach is dynamic tolerance computed from current pool depth and recent realized volatility rather than a fixed wallet default. As a rule of thumb, a swap that cannot fill within a few basis points of tolerance on a major pair is one you should split across time or route through a different venue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is proposer-builder separation and why does it matter for MEV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Proposer-builder separation splits block production into two roles: specialized builders assemble transactions and bid for inclusion, while validators propose whichever block pays most. It matters for MEV defense because it created the infrastructure for private order flow — builders can accept transactions directly from wallets without publishing them to the public mempool, which removes the visibility that sandwiching depends on. It also redistributed part of the extracted value to validators through competitive bidding, which is why protocol-level MEV elimination faces economic resistance."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+/* CoinvestAI shared article stylesheet (Auto Ads handles all ad placement) */
+:root{--bg:#ffffff;--surface:#f7f9fb;--surface-2:#eef2f6;--border:#e2e8f0;--text:#1a2330;--muted:#5b6b7c;--accent:#2563EB;--accent-2:#0f9c8e;--warn-bg:#fff7e6;--warn-border:#f0ce8a;--warn-text:#7a5a10;--code:#eef2f6;--maxw:820px;--radius:12px;--font-heading:'Space Grotesk',sans-serif;--font-body:'Inter',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.75}
+header.site{border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:100}
+.brand{font-family:var(--font-heading);font-weight:700;font-size:1.2rem;color:var(--text);text-decoration:none}
+nav.site a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:.92rem;font-weight:500}
+nav.site a:hover{color:var(--accent)}
+main{max-width:var(--maxw);margin:0 auto;padding:32px 20px 80px}
+.breadcrumb{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.breadcrumb a{color:var(--muted);text-decoration:none}
+.breadcrumb a:hover{color:var(--accent)}
+.kicker{display:inline-block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);padding:4px 10px;border-radius:999px;margin-bottom:14px;font-weight:600}
+h1{font-family:var(--font-heading);font-size:2.1rem;line-height:1.25;margin:0 0 14px}
+h2{font-family:var(--font-heading);font-size:1.45rem;margin:42px 0 14px;border-top:1px solid var(--border);padding-top:24px}
+h2:first-of-type{border-top:none;padding-top:0}
+h3{font-family:var(--font-heading);font-size:1.15rem;margin:26px 0 10px;color:var(--text)}
+.meta{color:var(--muted);font-size:.88rem;margin-bottom:22px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);text-decoration:none;font-weight:600}
+.disclaimer{background:var(--warn-bg);border:1px solid var(--warn-border);color:var(--warn-text);padding:14px 16px;border-radius:10px;font-size:.9rem;margin-bottom:28px;line-height:1.6}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:32px}
+.toc h2{margin:0 0 12px;font-size:1rem;border:none;padding:0}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:6px}
+.toc a{color:var(--accent);text-decoration:none;font-size:.94rem}
+.toc a:hover{text-decoration:underline}
+p{margin:0 0 16px;color:#2c3a4a;font-size:16px}
+ul,ol{margin:0 0 18px;padding-left:22px;color:#2c3a4a}
+li{margin-bottom:7px;line-height:1.6}
+.callout{background:var(--surface-2);border-left:3px solid var(--accent);border-radius:8px;padding:14px 18px;margin:20px 0;font-size:.96rem}
+.callout strong{color:var(--accent)}
+table{width:100%;border-collapse:collapse;margin:18px 0 22px;font-size:.92rem}
+th,td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--surface-2)}
+code{background:var(--code);padding:2px 6px;border-radius:4px;font-size:.88em}
+details{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600;color:var(--text)}
+.related{margin-top:44px;border-top:1px solid var(--border);padding-top:24px}
+.related-grid{display:flex;gap:16px;flex-wrap:wrap}
+.related-card{flex:1 1 260px;border:1px solid var(--border);border-radius:10px;padding:16px;background:var(--surface);text-decoration:none;color:var(--text)}
+.related-card:hover{border-color:var(--accent)}
+.related-card .tag{font-size:.78rem;color:var(--muted)}
+footer.site{border-top:1px solid var(--border);padding:40px 24px;color:var(--muted);font-size:.86rem}
+footer.site .cols{max-width:1100px;margin:0 auto;display:flex;gap:40px;flex-wrap:wrap}
+footer.site h5{color:var(--text);font-size:.85rem;margin:0 0 10px;font-family:var(--font-heading)}
+footer.site ul{list-style:none;padding:0;margin:0}
+footer.site li{margin-bottom:6px}
+footer.site a{color:var(--muted);text-decoration:none}
+footer.site a:hover{color:var(--accent)}
+.copyright{max-width:1100px;margin:24px auto 0;border-top:1px solid var(--border);padding-top:16px;text-align:center}
+@media(max-width:768px){h1{font-size:1.6rem}nav.site{display:none}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a class="brand" href="/">CoinvestAI</a>
+  <nav class="site" aria-label="Main navigation">
+    <a href="/blog.html">Blog</a>
+    <a href="/ai-tools.html">AI Tools</a>
+    <a href="/reviews.html">Reviews</a>
+    <a href="/fintech.html">Fintech</a>
+    <a href="/crypto-ai.html">Crypto AI</a>
+    <a href="/guides.html">Guides</a>
+    <a href="/news.html">News</a>
+    <a href="/about.html">About</a>
+  </nav>
+</header>
+
+<main>
+  <div class="breadcrumb" aria-label="Breadcrumb"><a href="https://coinvestai.com/">Home</a> › <a href="https://coinvestai.com/blog.html">Blog</a> › <a href="https://coinvestai.com/crypto-ai.html">Crypto AI</a> › AI-Powered MEV Detection & Prevention</div>
+  <span class="kicker">Crypto AI • Market Microstructure</span>
+  <h1>AI-Powered MEV Detection & Prevention: Sandwich Attacks and Order Flow (2026)</h1>
+  <div class="meta">
+    <span>📅 Last Updated: September 11, 2026</span>
+    <span>✍️ Author: <a href="/authors-coinvestai-editorial-team.html">CoinvestAI Editorial Team</a></span>
+    <span>⏱️ 14 min read</span>
+    <span>🔍 Reviewed under our <a href="/review-methodology.html">7-Factor Methodology</a></span>
+    <span>📖 Standards: <a href="/editorial-guidelines.html">Editorial Guidelines</a></span>
+  </div>
+
+  <div class="disclaimer">
+    <strong>⚠️ Educational &amp; Compliance Notice:</strong> This article describes market microstructure and defensive engineering for educational purposes. It is not investment advice, and nothing here is a recommendation to trade, to route orders through any particular venue, or to operate extraction infrastructure. MEV dynamics change with protocol upgrades and validator economics; verify current conditions before relying on any technique described.
+  </div>
+
+  <div class="toc">
+    <h2>📋 Table of Contents</h2>
+    <ol>
+      <li><a href="#s1">What MEV Actually Is — and What It Is Not</a></li>
+      <li><a href="#s2">The Extraction Taxonomy</a></li>
+      <li><a href="#s3">Anatomy of a Sandwich Attack</a></li>
+      <li><a href="#s4">How AI Detection Works: Signals and Models</a></li>
+      <li><a href="#s5">Mitigation Layer 1 — Execution Parameters</a></li>
+      <li><a href="#s6">Mitigation Layer 2 — Private Order Flow and PBS</a></li>
+      <li><a href="#s7">Mitigation Layer 3 — Encrypted Mempools and Protocol Design</a></li>
+      <li><a href="#s8">Comparing Mitigation Strategies</a></li>
+      <li><a href="#s9">Measuring Your Own Exposure</a></li>
+      <li><a href="#s10">Open Problems and Honest Limitations</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#sources">References</a></li>
+    </ol>
+  </div>
+
+  <article>
+    <p>Maximal extractable value is the profit available to whoever controls the ordering, inclusion, and exclusion of transactions in a block. It is not a bug in the ordinary sense: it is a direct consequence of a transparent mempool combined with deterministic on-chain execution and an auction for block space. Once you accept those three properties, ordering value exists whether or not anyone extracts it. <strong>AI-powered MEV detection</strong> is the discipline of measuring that extraction, attributing it to specific counterparties, and reducing a user's exposure to it — and it has become a genuine engineering field rather than a research curiosity because the measurable cost to ordinary traders became too large to ignore.</p>
+
+    <h2 id="s1">1. What MEV Actually Is — and What It Is Not</h2>
+    <p>MEV is the difference between the value a block producer (or their designated searcher) can realize by choosing transaction order, and the value realized under a naive first-come-first-served ordering. The term replaced "miner extractable value" after the transition to proof-of-stake, because the relevant actor became the validator — and, in practice, the specialized entities that build blocks on their behalf.</p>
+    <p>Two clarifications matter for detection work:</p>
+    <ul>
+      <li><strong>Not all MEV is harmful.</strong> Liquidations that keep lending protocols solvent and atomic arbitrage that equalizes prices across venues are both MEV, and both are functions the market needs performed. Suppressing them entirely would degrade protocol health. The harmful subset is <em>extractive</em> MEV that transfers value directly from an uninformed counterparty — chiefly sandwiching and certain forms of just-in-time liquidity that displace passive providers.</li>
+      <li><strong>MEV is not slippage.</strong> Slippage is the price impact of your own trade against a finite liquidity curve. MEV is the additional loss caused by someone else reordering the queue around you. A trade can suffer substantial slippage with zero MEV, and a small trade can be sandwiched. Conflating the two is the most common measurement error in this space and it leads directly to wrong mitigations.</li>
+    </ul>
+    <div class="callout"><strong>Key Insight:</strong> The structural root cause is a public mempool with deterministic execution. Every mitigation strategy is, in one form or another, an attempt to remove one of those two properties for a subset of order flow — either by hiding the order (private relay, encrypted submission) or by removing the ability to profit from ordering it (auction redesign, batch settlement).</div>
+    <h2 id="s2">2. The Extraction Taxonomy</h2>
+    <table>
+      <thead><tr><th>Category</th><th>Mechanism</th><th>Who Pays</th><th>Detection Difficulty</th></tr></thead>
+      <tbody>
+        <tr><td>DEX arbitrage</td><td>Atomic price equalization across pools or venues within one transaction</td><td>Nobody directly — value comes from mispricing</td><td>Low — self-evident from calldata</td></tr>
+        <tr><td>Liquidations</td><td>Racing to liquidate undercollateralized positions for the bonus</td><td>The liquidated borrower (bonus is by design)</td><td>Low</td></tr>
+        <tr><td>Sandwich</td><td>Front-run a victim swap, then back-run it, capturing the victim's slippage</td><td>The retail or institutional trader being sandwiched</td><td>Moderate — requires attribution across two txs</td></tr>
+        <tr><td>Just-in-time liquidity</td><td>Add concentrated liquidity immediately before a large swap, earn the fee, withdraw immediately after</td><td>Passive liquidity providers whose fees are displaced</td><td>High — needs position-level lifecycle tracking</td></tr>
+        <tr><td>Oracle / price manipulation</td><td>Move a low-liquidity pool price, then exploit a protocol that reads it</td><td>The lending or derivatives protocol and its users</td><td>Moderate — see our <a href="/blog-smart-contract-security-ai.html">contract security guide</a></td></tr>
+        <tr><td>Long-range / cross-domain</td><td>Exploit latency between chains or between settlement layers</td><td>Bridges and cross-chain users</td><td>High — requires multi-chain correlation</td></tr>
+        <tr><td>Time-bandit / reorg</td><td>Rewriting history to re-extract value on a reorganizable chain</td><td>All participants in the affected window</td><td>Low on mature chains, where finality makes it impractical</td></tr>
+      </tbody>
+    </table>
+    <p>A detection system needs to classify events into these categories, because the appropriate response differs completely: arbitrage and liquidations should generally be left alone, sandwiching should be routed around, and oracle manipulation is an incident requiring immediate escalation.</p>
+    <h2 id="s3">3. Anatomy of a Sandwich Attack</h2>
+    <p>A sandwich requires three things: a visible pending transaction with exploitable parameters, the ability to be ordered immediately before and after it, and enough capital to move the pool price meaningfully. The sequence is:</p>
+    <ol>
+      <li><strong>Observation.</strong> The searcher monitors public mempool traffic (and any private relay that leaks or permits conditional execution) for a swap with a generous slippage tolerance — typically 0.5% to 3% on retail wallets during volatile periods.</li>
+      <li><strong>Simulation.</strong> Against a local fork of current state, the searcher computes the optimal front-run size: buy enough of the output token to push the price up to just under the victim's stated maximum, given the pool's constant-product or concentrated-liquidity curve.</li>
+      <li><strong>Bid.</strong> The searcher bundles the front-run, the victim transaction, and the back-run into a single atomic bundle and bids for inclusion, typically through a builder under proposer-builder separation. Atomicity is essential: if the victim transaction does not land, the whole bundle reverts and the searcher loses only gas.</li>
+      <li><strong>Execution.</strong> The front-run swaps into the token, the victim swaps at the now-worse price (still within their tolerance, so it succeeds), and the back-run swaps out at a profit equal to the price difference minus gas and the bid paid to the block producer.</li>
+    </ol>
+    <p>The victim's loss is bounded by their own slippage setting, which is precisely why slippage tolerance is the single highest-leverage defensive parameter a retail user controls. A transaction submitted with 0.1% tolerance is nearly unprofitable to sandwich after gas; one submitted with 3% is a standing invitation.</p>
+    <p>Two variants deserve separate detection logic. <strong>Partial sandwiches</strong> scale the front-run down to stay under detection thresholds and monitoring alerts. <strong>Asymmetric sandwiches</strong> split the front-run and back-run across different searcher addresses to defeat naive same-address attribution — which is why graph-based clustering, not address equality, is the reliable detection primitive.</p>
+    <h2 id="s4">4. How AI Detection Works: Signals and Models</h2>
+    <p>Detection is fundamentally a sequence-mining and attribution problem, and it decomposes into feature extraction, event classification, and entity clustering.</p>
+    <h3>4.1 Feature extraction from raw chain data</h3>
+    <p>Per transaction, a useful feature vector includes: decoded calldata (router, method, token path, amount in, minimum amount out), realized price versus the pre-transaction pool price, gas parameters and priority fee, position within the block, whether the transaction arrived via a private relay, revert status, and the set of internal calls and token transfers. Per pool, you want depth, current price, recent volume, and the concentrated-liquidity tick distribution.</p>
+    <h3>4.2 The classifier</h3>
+    <p>The core signal for a sandwich is structural and can be expressed almost deterministically: two swaps on the same pool in the same block, in opposite directions, executed by economically-linked addresses, bracketing a third-party swap, where the bracketing pair realizes a profit and the bracketed party realizes a loss greater than its pure price impact. A model adds value where the deterministic rule breaks down — partial sandwiches, cross-block bracketing, split execution across routers, and adversarial obfuscation.</p>
+    <p>Practitioners typically combine:</p>
+    <ul>
+      <li><strong>Rule-based detectors</strong> for high-confidence canonical cases, which are also the source of labeled training data.</li>
+      <li><strong>Gradient-boosted classifiers</strong> over the engineered features for borderline cases, where interpretability matters because output feeds compliance and reporting workflows.</li>
+      <li><strong>Graph neural networks or community-detection algorithms</strong> over the address interaction graph to cluster addresses controlled by a single searcher. Shared funding sources, gas sponsorship patterns, temporal exclusivity of activity, and repeated co-occurrence in bundles are the strongest edges.</li>
+      <li><strong>Sequence models</strong> over mempool arrival and inclusion order, to identify searchers adapting their timing in response to defensive changes.</li>
+    </ul>
+    <h3>4.3 Real-time versus retrospective</h3>
+    <p>Retrospective analysis (post-block) is straightforward and is what most public dashboards do. Real-time pre-inclusion detection is materially harder and more valuable: it requires subscribing to pending transaction feeds, maintaining a live state fork, and completing simulation within the block time budget. This is the same streaming-pipeline problem we cover in <a href="/blog-real-time-risk-scoring-ai-2026.html">real-time risk scoring</a>, with the added constraint that your latency budget is measured in hundreds of milliseconds rather than seconds.</p>
+    <div class="callout"><strong>Model risk note:</strong> Detection models trained on historical sandwich patterns degrade when the extraction population adapts. Treat detector precision and recall as monitored production metrics with drift alerting, not as one-time validation results. Our <a href="/blog-ai-explainability-finance-2026.html">explainable AI guide</a> covers the attribution techniques that make a detector's decisions auditable.</div>
+    <h2 id="s5">5. Mitigation Layer 1 — Execution Parameters</h2>
+    <p>Before any infrastructure change, three parameters control the majority of retail exposure:</p>
+    <ul>
+      <li><strong>Slippage tolerance.</strong> Set the minimum tolerance that still fills reliably for the pool's depth. For liquid pairs this is often a few basis points. Dynamic tolerance — computed from observed pool depth and recent volatility rather than a fixed default — is strictly better and is now implemented by several routers and aggregators.</li>
+      <li><strong>Trade size relative to pool depth.</strong> Splitting a large order across pools and across time reduces both price impact and sandwich profitability, because the per-transaction extractable margin shrinks while the attacker's gas and capital cost stays fixed.</li>
+      <li><strong>Route selection.</strong> Aggregators that split across venues reduce single-pool impact. But note the trade-off: more legs means more places where ordering can be exploited, and a poorly-designed split can increase rather than decrease exposure.</li>
+    </ul>
+    <p>These measures reduce expected loss but do not eliminate it, because a public mempool still reveals intent. They are the right first step precisely because they are free and require no trust assumptions.</p>
+    <h2 id="s6">6. Mitigation Layer 2 — Private Order Flow and PBS</h2>
+    <p>Proposer-builder separation restructured who captures MEV. Under PBS, specialized builders assemble blocks and bid for the right to have them proposed by validators. This had two consequences that matter enormously for defense.</p>
+    <p><strong>First, it created a market for private order flow.</strong> A builder who receives a transaction privately — through a wallet-integrated RPC endpoint rather than public gossip — cannot be front-run by searchers watching the public mempool, because those searchers never see it. Several widely-deployed protection RPCs route user transactions directly to builders under an agreement that the transaction is either included as submitted or not included at all, with no reordering. For a retail swap, this typically eliminates sandwich exposure at no cost and with no meaningful downside other than occasionally slower inclusion.</p>
+    <p><strong>Second, it socialized part of the MEV.</strong> Because builders compete on bid price, a portion of extractable value flows to validators and, indirectly, to stakers. This is why "eliminating MEV" at the protocol level is politically difficult: a substantial constituency now depends on it.</p>
+    <p><strong>Order flow auctions</strong> represent a middle design. Rather than hiding the order, the auction exposes it competitively so that multiple searchers bid against each other and part of the extracted value is returned to the user. This reduces net user loss without eliminating visibility, at the cost of requiring trust in the auction mechanism and the honesty of the refund accounting.</p>
+    <p><strong>Honest caveats about private RPCs:</strong> they introduce a trust assumption in the relay operator (they see your flow and could exploit it), they reduce public mempool transparency which has broader market-quality implications, and they create centralization pressure — a small number of builders processing most private flow is a systemic concentration risk that regulators and researchers track closely.</p>
+    <h2 id="s7">7. Mitigation Layer 3 — Encrypted Mempools and Protocol Design</h2>
+    <p>The strongest defenses remove the visibility property entirely at the protocol layer.</p>
+    <ul>
+      <li><strong>Threshold encryption.</strong> Transactions are encrypted on submission and only decryptable after inclusion is committed, using a distributed key held by a committee. No single party sees pending flow, so ordering-based extraction becomes structurally impossible for the encrypted class of transactions. Costs: decryption latency, committee trust assumptions, and the need to handle the "decrypt-then-reorder within a block" edge carefully.</li>
+      <li><strong>Commit-reveal schemes.</strong> Users commit to an encrypted order in one period and reveal it in a later one, after inclusion ordering is fixed. Simpler than threshold encryption but adds a round trip, which degrades user experience for time-sensitive trades.</li>
+      <li><strong>Batch auctions with frequent uniform clearing.</strong> Collect orders over a short window and clear them all at a single computed price. This eliminates intra-batch ordering entirely and is the design most directly analogous to how traditional exchanges handle opening and closing auctions. Trade-off: latency and price discovery between batches.</li>
+      <li><strong>Pool-level design changes.</strong> Constant-product AMMs are inherently exploitable through ordering because price is a deterministic function of reserves. Designs that introduce uncertainty into the execution price — randomized or time-dependent parameters, or fees that scale with recent extraction activity — reduce the searcher's ability to compute an optimal front-run size, at the cost of worse execution predictability for honest users.</li>
+      <li><strong>Fair-ordering services.</strong> A sequencing layer that commits to ordering transactions by verifiable receipt time rather than by bid. Effective in principle; the hard part is defining "receipt time" in a distributed system without introducing a new trusted sequencer.</li>
+    </ul>
+    <h2 id="s8">8. Comparing Mitigation Strategies</h2>
+    <table>
+      <thead><tr><th>Strategy</th><th>Reduces Sandwich</th><th>Trust Assumption</th><th>User Friction</th><th>Best Suited To</th></tr></thead>
+      <tbody>
+        <tr><td>Tight slippage tolerance</td><td>Partially</td><td>None</td><td>None</td><td>Everyone, immediately</td></tr>
+        <tr><td>Order splitting</td><td>Partially</td><td>None</td><td>Low</td><td>Large orders in deep pools</td></tr>
+        <tr><td>Private relay RPC</td><td>Substantially</td><td>Relay + builder honesty</td><td>None</td><td>Retail swaps on major chains</td></tr>
+        <tr><td>Order flow auction</td><td>Partially (with rebate)</td><td>Auction operator</td><td>Low</td><td>Users wanting rebates over privacy</td></tr>
+        <tr><td>Threshold-encrypted mempool</td><td>Fully for encrypted flow</td><td>Decryption committee</td><td>Latency</td><td>Chains that adopt it natively</td></tr>
+        <tr><td>Batch / uniform-price auction</td><td>Fully within a batch</td><td>Batch operator</td><td>Waiting for clear</td><td>Venues designed around it</td></tr>
+        <tr><td>Fair-ordering sequencer</td><td>Fully</td><td>Sequencer decentralization</td><td>Low</td><td>App-specific chains</td></tr>
+      </tbody>
+    </table>
+    <p>The practical conclusion is layered rather than singular: default to tight tolerance and order splitting, route through a reputable private relay where available, and prefer venues whose design reduces ordering value when the trade is large enough that the difference is material.</p>
+    <h2 id="s9">9. Measuring Your Own Exposure</h2>
+    <p>You cannot manage an exposure you have not measured. A defensible measurement program has four components:</p>
+    <ol>
+      <li><strong>Realized-loss attribution per trade.</strong> For each executed swap, compute the counterfactual execution price under a no-reordering assumption (the price you would have received had your transaction executed against the pool state immediately preceding it, with no bracketing trades) and compare with actual. The gap in excess of pure price impact is your MEV loss. This requires a state fork and careful pool-math reproduction — it is not available from transaction receipts alone.</li>
+      <li><strong>Exposure by venue and pool.</strong> Concentration matters. Losses usually cluster in a small number of shallow pools and in specific time windows correlated with volatility, because both raise the optimal front-run size and increase retail slippage defaults.</li>
+      <li><strong>Searcher attribution.</strong> Cluster the addresses that bracketed your trades and track whether the same entities recur. Persistent exposure to a single searcher suggests your order flow is visible through a specific channel — which is actionable.</li>
+      <li><strong>Trend and regression testing.</strong> After any change (new RPC endpoint, new router, new tolerance policy), measure before and after over a comparable volatility window. Volatility moves MEV loss more than most policy changes do, so unadjusted comparisons mislead.</li>
+    </ol>
+    <p>Teams building this on their own data typically reuse the streaming architecture described in our <a href="/blog-real-time-risk-scoring-ai-2026.html">real-time risk scoring</a> guide, and the on-chain feature engineering described in <a href="/blog-blockchain-data-analytics-ai.html">blockchain data analytics</a>.</p>
+    <h2 id="s10">10. Open Problems and Honest Limitations</h2>
+    <p>An article that presents MEV mitigation as solved is not describing the current state of the field. The genuinely open problems:</p>
+    <ul>
+      <li><strong>Centralization pressure.</strong> Private order flow concentrates in a small number of builders. This reduces retail MEV loss while increasing systemic concentration — a real trade-off, not a free improvement.</li>
+      <li><strong>Cross-domain MEV.</strong> As liquidity fragments across chains and rollups, ordering value migrates to the bridge and messaging layer, where detection is harder and latency budgets are longer. See our <a href="/blog-ai-cross-chain-analytics.html">cross-chain analytics</a> piece.</li>
+      <li><strong>Encrypted mempools and market quality.</strong> Hiding pending flow protects users but also removes information that honest participants use, and it complicates surveillance for market abuse. Regulators have not settled on how to treat this.</li>
+      <li><strong>Adaptive adversaries.</strong> Detection models trained on today's searcher behavior will face tomorrow's. Partial sandwiches, address rotation, and cross-block bracketing are already deployed responses to naive detection.</li>
+      <li><strong>Attribution limits.</strong> Clustering addresses into economic entities is probabilistic. Reporting an attribution as certain when it is a high-confidence guess is a measurement error that propagates into every downstream decision.</li>
+      <li><strong>Liquidity-provider harm is under-measured.</strong> Sandwich harm to traders gets attention; JIT liquidity displacement of passive providers is larger in aggregate and much harder to attribute, because the counterfactual fee distribution is not observable.</li>
+    </ul>
+    <p>For the broader context of how these microstructure concerns fit into protocol-level risk, read <a href="/blog-ai-risk-management-defi-2026.html">AI Risk Management in DeFi Protocols</a> and <a href="/blog-ai-crypto-trading-algorithms.html">AI Crypto Trading Algorithms</a>.</p>
+
+    <h2 id="faq">💬 Frequently Asked Questions</h2>
+    <details>
+      <summary>What is a sandwich attack in simple terms?</summary>
+      <p style="margin:10px 0 0">A sandwich attack happens when someone sees your pending swap in the public mempool, buys the token you are about to buy immediately before you (pushing the price up), lets your trade execute at that worse price, then sells immediately after you at the higher price. Your slippage tolerance sets the ceiling on how much they can extract, which is why a loose tolerance makes you a target and a tight one makes the attack unprofitable after gas costs. Private transaction relays prevent it by never letting the attacker see your order at all.</p>
+    </details>
+    <details>
+      <summary>Does using a private RPC endpoint have downsides?</summary>
+      <p style="margin:10px 0 0">Yes, and they are worth understanding rather than ignoring. You are trusting the relay operator and the builders it forwards to with your order flow — they see it even though public searchers do not. Private flow also reduces overall mempool transparency, which has market-quality implications beyond your own trades. Finally, because a small number of builders process most private order flow, widespread adoption increases centralization in block production. For most retail swaps the protection outweighs these concerns, but it is a trust trade, not a free upgrade.</p>
+    </details>
+    <details>
+      <summary>Can AI fully prevent MEV?</summary>
+      <p style="margin:10px 0 0">No. Detection and routing can substantially reduce a specific user's exposure, and protocol-level designs such as batch auctions or encrypted mempools can eliminate ordering value for the transactions they cover. But MEV arises from the interaction of a transparent mempool, deterministic execution, and an auction for block space. As long as those properties hold for some order flow, extraction from that flow remains possible. Liquidation and arbitrage MEV are also functions the market needs performed, so total elimination is not even the goal.</p>
+    </details>
+    <details>
+      <summary>How do I know if my transaction was sandwiched?</summary>
+      <p style="margin:10px 0 0">Compare the price you actually received with the price the pool would have given you against the state immediately before your transaction, with no intervening trades. If your loss exceeds what pure price impact from your own size explains, and two opposite-direction swaps by other addresses bracket yours in the same block, you were sandwiched. Public MEV explorers surface the canonical cases automatically, but partial and cross-block sandwiches require state-fork simulation and graph-based address clustering to detect reliably.</p>
+    </details>
+    <details>
+      <summary>Is all MEV harmful to markets?</summary>
+      <p style="margin:10px 0 0">No, and this distinction matters for both policy and engineering. Arbitrage that equalizes prices between pools and liquidations that keep lending protocols solvent are both MEV, and both perform necessary market functions — suppressing them would degrade protocol health. The harmful subset is extractive MEV that transfers value directly from an uninformed counterparty, principally sandwiching and just-in-time liquidity that displaces passive providers. Detection systems should classify events into these categories because the correct response differs completely between them.</p>
+    </details>
+    <details>
+      <summary>Should I set my slippage tolerance as low as possible?</summary>
+      <p style="margin:10px 0 0">Set it as low as reliably fills, not as low as theoretically possible. Too-tight tolerance on an illiquid pair or during volatility causes failed transactions and wasted gas, and it can force you to retry at a worse moment. The right approach is dynamic tolerance computed from current pool depth and recent realized volatility rather than a fixed wallet default. As a rule of thumb, a swap that cannot fill within a few basis points of tolerance on a major pair is one you should split across time or route through a different venue.</p>
+    </details>
+    <details>
+      <summary>What is proposer-builder separation and why does it matter for MEV?</summary>
+      <p style="margin:10px 0 0">Proposer-builder separation splits block production into two roles: specialized builders assemble transactions and bid for inclusion, while validators propose whichever block pays most. It matters for MEV defense because it created the infrastructure for private order flow — builders can accept transactions directly from wallets without publishing them to the public mempool, which removes the visibility that sandwiching depends on. It also redistributed part of the extracted value to validators through competitive bidding, which is why protocol-level MEV elimination faces economic resistance.</p>
+    </details>
+
+    <h2 id="sources">📚 References &amp; Further Reading</h2>
+    <ol style="font-size:.92rem;color:var(--muted)">
+      <li><a href='https://ethereum.org/en/developers/docs/mev/' rel='noopener'>Ethereum.org — MEV and proposer-builder separation</a></li>
+      <li><a href='https://www.flashbots.net/' rel='noopener'>Flashbots — research, MEV-Boost, and block builder documentation</a></li>
+      <li><a href='https://collective.flashbots.net/' rel='noopener'>Flashbots Collective — MEV research publications</a></li>
+      <li><a href='https://www.chainalysis.com/blog/' rel='noopener'>Chainalysis research — on-chain market structure and crime reports</a></li>
+      <li><a href='https://www.bis.org/publ/work' rel='noopener'>Bank for International Settlements — working papers on decentralized finance market structure</a></li>
+      <li>CoinvestAI: <a href='/blog-ai-risk-management-defi-2026.html'>AI Risk Management in DeFi Protocols (2026)</a></li>
+      <li>CoinvestAI: <a href='/blog-blockchain-data-analytics-ai.html'>Blockchain Data Analytics with AI</a></li>
+      <li>CoinvestAI: <a href='/blog-real-time-risk-scoring-ai-2026.html'>Real-Time Risk Scoring with AI</a></li>
+      <li>CoinvestAI: <a href='/blog-ml-crypto-market-analysis.html'>ML Applications in Crypto Market Analysis</a></li>
+      <li>CoinvestAI: <a href='/disclaimer.html'>Risk disclaimer — nothing here is investment advice</a></li>
+    </ol>
+    <p style="font-size:.85rem;color:var(--muted)">Editorial note: CoinvestAI does not receive compensation from any vendor named in this article. External links are provided for verification and are not endorsements. Read our <a href="/editorial-guidelines.html" style="color:var(--accent)">editorial guidelines</a> and <a href="/review-methodology.html" style="color:var(--accent)">review methodology</a>.</p>
+  </article>
+
+  <div class="related">
+    <h2 style="border:none;padding:0;margin:0 0 14px">Related Research</h2>
+    <div class="related-grid">
+      <a class="related-card" href="/blog-smart-contract-security-ai.html"><div class="tag">Protocol Security</div><strong>Smart Contract Security Auditing with AI</strong></a>
+      <a class="related-card" href="/blog-ai-cross-chain-analytics.html"><div class="tag">Interoperability</div><strong>Cross-Chain Analytics with AI (2026)</strong></a>
+      <a class="related-card" href="/blog-ai-risk-management-defi-2026.html"><div class="tag">DeFi Risk</div><strong>AI Risk Management in DeFi Protocols (2026)</strong></a>
+      <a class="related-card" href="/blog-blockchain-data-analytics-ai.html"><div class="tag">On-Chain</div><strong>Blockchain Data Analytics with AI</strong></a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="cols">
+    <div><h5>CoinvestAI</h5><p style="max-width:240px">Independent research on AI finance tools, algorithmic analysis, and smart investing insights.</p></div>
+    <div><h5>Explore</h5><ul><li><a href="/blog.html">Blog</a></li><li><a href="/ai-tools.html">AI Tools</a></li><li><a href="/reviews.html">Reviews</a></li><li><a href="/guides.html">Guides</a></li><li><a href="/news.html">News</a></li></ul></div>
+    <div><h5>Topics</h5><ul><li><a href="/fintech.html">Fintech AI</a></li><li><a href="/crypto-ai.html">Crypto AI</a></li><li><a href="/authors.html">Authors</a></li></ul></div>
+    <div><h5>Company</h5><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy-policy.html">Privacy</a></li><li><a href="/disclaimer.html">Disclaimer</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/cookie-policy.html">Cookies</a></li></ul></div>
+  </div>
+  <div class="copyright">© 2026 CoinvestAI. All rights reserved. <br><small>Educational content only. Not financial advice. See our <a href="/disclaimer.html" style="color:inherit">full risk disclaimer</a>.</small></div>
+</footer>
+
+
+<!-- ===== GDPR / ePrivacy cookie consent banner (pairs with Consent Mode v2 in the document head) ===== -->
+<style>
+.cva-consent{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:none;
+  padding:16px 16px 20px;background:linear-gradient(160deg,#0F172A,#1e293b);
+  border-top:1px solid rgba(255,255,255,.12);box-shadow:0 -10px 40px rgba(0,0,0,.35);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+.cva-consent.show{display:block}
+.cva-consent-inner{max-width:1100px;margin:0 auto;display:flex;gap:20px;align-items:center;
+  justify-content:space-between;flex-wrap:wrap}
+.cva-consent-text{color:rgba(255,255,255,.78);font-size:13px;line-height:1.65;max-width:660px;margin:0}
+.cva-consent-text a{color:#7da7ff;text-decoration:underline}
+.cva-consent-btns{display:flex;gap:10px;flex-wrap:wrap}
+.cva-consent-btns button{border-radius:10px;padding:11px 22px;font-size:14px;font-weight:600;
+  cursor:pointer;font-family:inherit;transition:background .2s,border-color .2s,color .2s}
+.cva-accept{background:#2563EB;color:#fff;border:1px solid #2563EB}
+.cva-accept:hover{background:#1d4ed8;border-color:#1d4ed8}
+.cva-reject{background:transparent;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.35)}
+.cva-reject:hover{border-color:rgba(255,255,255,.7);color:#fff}
+@media(max-width:768px){.cva-consent-inner{flex-direction:column;align-items:flex-start}
+  .cva-consent-btns button{flex:1 1 auto}}
+</style>
+<div class="cva-consent" id="cvaConsentBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cva-consent-inner">
+    <p class="cva-consent-text">🍪 We use cookies to serve contextual advertising, measure site traffic, and improve your experience. With your consent, ads and analytics may be personalized. You can change your choice at any time — see our <a href="/cookie-policy.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+    <div class="cva-consent-btns">
+      <button type="button" class="cva-accept" id="cvaAccept">Accept all cookies</button>
+      <button type="button" class="cva-reject" id="cvaReject">Essential only</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  function store(v){try{localStorage.setItem('cookieConsent',v);}catch(e){}}
+  function update(v){
+    var g = v === 'granted', s = g ? 'granted' : 'denied';
+    if (typeof gtag === 'function') {
+      gtag('consent','update',{ad_storage:s,ad_user_data:s,ad_personalization:s,analytics_storage:s});
+    }
+    window.adsbygoogle = window.adsbygoogle || {};
+    window.adsbygoogle.requestNonPersonalizedAds = g ? 0 : 1;
+    var b = document.getElementById('cvaConsentBanner');
+    if (b) b.classList.remove('show');
+  }
+  window.setCookieConsent = function(v){ store(v); update(v); };
+  window.resetCookieConsent = function(){ try{localStorage.removeItem('cookieConsent');}catch(e){} location.reload(); };
+  var a = document.getElementById('cvaAccept'), r = document.getElementById('cvaReject');
+  if (a) a.addEventListener('click', function(){ window.setCookieConsent('granted'); });
+  if (r) r.addEventListener('click', function(){ window.setCookieConsent('denied'); });
+  var c = null; try { c = localStorage.getItem('cookieConsent'); } catch(e){}
+  if (c !== 'granted' && c !== 'denied') {
+    var b = document.getElementById('cvaConsentBanner');
+    if (b) b.classList.add('show');
+  }
+})();
+</script>
+
+</body>
+</html>

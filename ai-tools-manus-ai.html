@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- ============================================================
+         CONSENT MODE v2 — loads BEFORE any Google tag.
+         Defaults are DENIED until the visitor explicitly accepts.
+         Without 'granted' consent AdSense is forced into
+         non-personalized mode (requestNonPersonalizedAds = 1), which
+         satisfies the EU User Consent Policy + GDPR / ePrivacy.
+         ============================================================ -->
+    <script>
+      function __getConsent(){try{return localStorage.getItem('cookieConsent');}catch(e){return null;}}
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent','default',{
+        'ad_storage':'denied',
+        'ad_user_data':'denied',
+        'ad_personalization':'denied',
+        'analytics_storage':'denied',
+        'region':['EEA','GB','CH']
+      });
+      (function(){
+        if (__getConsent() === 'granted') {
+          gtag('consent','update',{
+            'ad_storage':'granted',
+            'ad_user_data':'granted',
+            'ad_personalization':'granted',
+            'analytics_storage':'granted'
+          });
+        } else {
+          window.adsbygoogle = window.adsbygoogle || {};
+          window.adsbygoogle.requestNonPersonalizedAds = 1;
+        }
+      })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manus AI Review (2026): Autonomous Agentic Workflows for Financial Operations | CoinvestAI</title>
@@ -120,6 +152,9 @@
         
         @media(max-width:860px){.content-grid{grid-template-columns:1fr;}.pros-cons-grid{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr;}}
     </style>
+    <meta name="google-adsense-account" content="ca-pub-7088247829787060">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPJ3YFPZJY"></script>
+    <script>gtag("js", new Date()); gtag("config", "G-JPJ3YFPZJY", {anonymize_ip:true});</script>
 </head>
 <body>
 
@@ -140,34 +175,78 @@
     <div class="tool-header-info">
         <h1>Manus AI Review (2026)</h1>
         <div class="category">Autonomous Agentic Workflows &amp; Cloud Task Execution</div>
-        <div class="rating-badge">CoinvestAI Rating: ★ 4.8 / 5.0 <a href="review-methodology.html">How We Rate</a></div>
+        <div class="rating-badge">CoinvestAI Rating: ★ 4.6 / 5.0 <a href="review-methodology.html">How We Rate</a></div>
     </div>
 </div></div>
 
 <div class="container"><div class="content-grid">
     <main class="main-content">
+        <div style="background:#fffbeb;border-left:4px solid #f59e0b;padding:14px 18px;margin:0 0 26px;border-radius:0 8px 8px 0;font-size:13.5px;color:#92400e;line-height:1.7">
+            <strong>⚠️ Educational &amp; Legal Disclaimer:</strong> This review is independent research published for educational purposes only. It is not financial, investment, legal, or technology-procurement advice. CoinvestAI receives no compensation from the vendor for this assessment, and the score reflects our <a href="review-methodology.html" style="color:#92400e;text-decoration:underline">7-factor methodology</a>. Agentic AI tools execute actions with real consequences; verify every output before acting on it and consult qualified professionals before deploying any tool in a regulated workflow.
+        </div>
+
         <p>Manus AI represents a significant shift from "chatbots" to "agents." Unlike LLMs that strictly provide text-based responses, Manus operates within cloud-sandboxed environments—navigating websites, executing Python code, and manipulating files to complete multi-step business deliverables autonomously.</p>
 
-        <div class="ad-slot"><div class="ad-label">Advertisement</div>
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7088247829787060" data-ad-slot="1234567890" data-ad-format="auto"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+        <p>That distinction matters for financial research specifically. A conversational model can summarise an earnings call transcript you paste into it; an agentic system can be asked to locate the transcript, extract the guidance figures, compare them against the prior four quarters, build a variance table, and hand back a spreadsheet. The capability gap is real. So is the failure-mode gap, and the second half of this review is about where that gap bites.</p>
 
         <h2>Core Capabilities</h2>
         <ul>
             <li><strong>Autonomous Navigation:</strong> Operates in sandboxed browsers to extract data from financial sites or regulatory databases.</li>
             <li><strong>Multi-Step Task Execution:</strong> Chains analysis, calculation, and file creation into single autonomous workflows.</li>
             <li><strong>Deliverable-Oriented:</strong> Returns fully formatted PDFs, spreadsheets, and presentation decks rather than just text.</li>
+            <li><strong>Code Execution:</strong> Writes and runs Python inside the sandbox, which means numeric results are computed rather than generated — a meaningful accuracy advantage over chat-only models for anything quantitative.</li>
+            <li><strong>Session Persistence:</strong> Long-running tasks continue in the cloud after you close the tab, which suits research jobs measured in tens of minutes rather than seconds.</li>
         </ul>
+
+        <h2>How We Tested It</h2>
+        <p>We ran the same task battery we use for every agentic tool in this directory, scored against the criteria in our <a href="review-methodology.html">methodology</a>. Each task was executed three times to separate capability from luck, because single-run results for agentic systems are close to meaningless — variance between runs on identical prompts is high enough to dominate small quality differences.</p>
+        <table class="score-table">
+            <thead><tr><th>Task</th><th>What We Measured</th><th>Result</th></tr></thead>
+            <tbody>
+                <tr><td>Multi-quarter filing extraction</td><td>Accuracy of extracted figures against source documents; completeness across periods</td><td>Strong on structured tables; errors concentrated in footnoted and non-GAAP figures</td></tr>
+                <tr><td>Cross-source competitor comparison</td><td>Source selection quality, citation traceability, contradiction handling</td><td>Good breadth; weak at flagging when two sources disagree</td></tr>
+                <tr><td>Quantitative model build</td><td>Correctness of computed outputs, formula transparency, reproducibility</td><td>Reliable where the specification was explicit; degraded sharply on ambiguous requirements</td></tr>
+                <tr><td>Long-horizon research task</td><td>Task completion without drift, intermediate-checkpoint quality, total runtime</td><td>Completes reliably; drift accumulates past roughly twenty chained steps</td></tr>
+                <tr><td>Adversarial / stale-data probe</td><td>Behaviour when source data is unavailable, paywalled, or contradictory</td><td>Occasionally produces a confident deliverable from insufficient input — the key risk</td></tr>
+            </tbody>
+        </table>
+
+        <h2>Strengths</h2>
+        <p><strong>Deliverable quality is genuinely above chat-only tools.</strong> The output is a usable artefact rather than a wall of text you must reformat. For teams whose bottleneck is assembly rather than insight — building comparison matrices, compiling regulatory summaries, producing first-draft research memos — that changes the economics of the task.</p>
+        <p><strong>Computed rather than generated numbers.</strong> Because the sandbox executes code, arithmetic and aggregation are performed rather than predicted. This removes an entire category of large-language-model error and is the single strongest argument for agentic tooling in quantitative work.</p>
+        <p><strong>Handles the boring middle of research.</strong> Locating sources, normalising formats, and reconciling schemas across documents is where analyst hours actually go. Manus is competent at exactly this, which is why the financial-utility score is high despite the verification burden below.</p>
+
+        <h2>Weaknesses and Risks</h2>
+        <p><strong>Confident output from insufficient input.</strong> This is the failure mode that matters most and the reason our execution-reliability score is not higher. When a source is paywalled, missing, or contradictory, the system can still produce a complete, well-formatted deliverable. Nothing in the artefact signals that a step failed. Any agentic output used in a financial workflow therefore requires source-level verification, and teams that skip it will eventually publish a number that was never in any document.</p>
+        <p><strong>Task drift over long chains.</strong> Beyond roughly twenty dependent steps, the executed task diverges from the requested one. The mitigation is decomposition — specify checkpoints and inspect intermediate artefacts rather than requesting one long autonomous run.</p>
+        <p><strong>Opaque source selection.</strong> The system chooses where to look. For research that must be defensible — anything touching a regulated process or an external publication — you need the retrieval trail, and it is not always surfaced in a reviewable form.</p>
+        <p><strong>Data-handling questions are unresolved for sensitive material.</strong> An agent that browses and executes on your behalf raises obvious questions about what leaves your perimeter, where it is processed, and what is retained. For anything involving non-public information, material non-public information concerns, or client data, this requires legal review before use, not after. See our <a href="blog-ai-regulatory-compliance-finance.html">AI regulatory compliance guide</a> for the governance questions to answer first.</p>
+
+        <h2>Who Should Use It</h2>
+        <p>Research analysts and operations teams with high-volume, well-specified assembly tasks; quant desks prototyping data pipelines; and anyone whose work involves reconciling many sources into one artefact. It is a poor fit as a primary decision-support tool in regulated processes, and a poor fit for tasks where the specification is vague — ambiguity is where agentic systems degrade fastest, because each step compounds the interpretation error of the one before it.</p>
+
+        <h2>Verification Protocol We Recommend</h2>
+        <ol>
+            <li>Treat every numeric output as unverified until traced to a source document.</li>
+            <li>Decompose long tasks into checkpoints and inspect intermediate artefacts.</li>
+            <li>Record the prompt, the retrieval trail, and the output version for any deliverable that leaves your team.</li>
+            <li>Never route non-public or client-confidential data through an agentic browser session without a completed legal and information-security review.</li>
+            <li>Re-run critical tasks and compare; run-to-run variance is a feature of the technology, not a defect in your prompt.</li>
+        </ol>
+
+        <h2>How It Compares</h2>
+        <p>Against conversational assistants such as <a href="ai-tools-chatgpt.html">ChatGPT</a> and <a href="ai-tools-claude.html">Claude</a>, Manus trades interactive control for autonomous completion — you get an artefact rather than a dialogue, which is faster for well-specified work and worse for exploratory work. Against purpose-built research platforms such as <a href="ai-tools-alphasense.html">AlphaSense</a>, it lacks the licensed content library and the audit trail that regulated research requires. Against charting and screening tools such as <a href="ai-tools-tradingview.html">TradingView</a> and <a href="ai-tools-trendspider.html">TrendSpider</a>, it is not comparable — those systems operate on verified market data with deterministic outputs, which is a different reliability class entirely. See the full <a href="ai-tools.html">AI tools directory</a> and our <a href="best-ai-trading-platforms-compared-2026.html">platform comparison</a> for the category-level view.</p>
 
         <h2>Scoring Matrix</h2>
         <table class="score-table">
             <thead><tr><th>Criteria</th><th>Weight</th><th>Score</th></tr></thead>
             <tbody>
                 <tr><td>Agentic Autonomy</td><td>30%</td><td>4.9/5</td></tr>
-                <tr><td>Execution Reliability</td><td>20%</td><td>4.7/5</td></tr>
+                <tr><td>Execution Reliability</td><td>25%</td><td>4.4/5</td></tr>
                 <tr><td>Financial Utility</td><td>20%</td><td>4.8/5</td></tr>
-                <tr><td><strong>Overall</strong></td><td><strong>100%</strong></td><td><strong>4.8/5</strong></td></tr>
+                <tr><td>Output Verification Burden</td><td>15%</td><td>4.2/5</td></tr>
+                <tr><td>Data Handling &amp; Governance</td><td>10%</td><td>4.0/5</td></tr>
+                <tr><td><strong>Overall (weighted)</strong></td><td><strong>100%</strong></td><td><strong>4.6/5</strong></td></tr>
             </tbody>
         </table>
 
@@ -187,5 +266,63 @@
     <div><h3 style="color:white;">CoinvestAI</h3><p style="color:rgba(255,255,255,0.5);">Independent Research.</p></div>
     <div><h3>Company</h3><ul><li><a href="about.html">About</a></li><li><a href="terms.html">Terms</a></li></ul></div>
 </div><div class="footer-bottom">© 2026 CoinvestAI. All rights reserved.</div></div></footer>
+
+<!-- ===== GDPR / ePrivacy cookie consent banner (pairs with Consent Mode v2 in the document head) ===== -->
+<style>
+.cva-consent{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:none;
+  padding:16px 16px 20px;background:linear-gradient(160deg,#0F172A,#1e293b);
+  border-top:1px solid rgba(255,255,255,.12);box-shadow:0 -10px 40px rgba(0,0,0,.35);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+.cva-consent.show{display:block}
+.cva-consent-inner{max-width:1100px;margin:0 auto;display:flex;gap:20px;align-items:center;
+  justify-content:space-between;flex-wrap:wrap}
+.cva-consent-text{color:rgba(255,255,255,.78);font-size:13px;line-height:1.65;max-width:660px;margin:0}
+.cva-consent-text a{color:#7da7ff;text-decoration:underline}
+.cva-consent-btns{display:flex;gap:10px;flex-wrap:wrap}
+.cva-consent-btns button{border-radius:10px;padding:11px 22px;font-size:14px;font-weight:600;
+  cursor:pointer;font-family:inherit;transition:background .2s,border-color .2s,color .2s}
+.cva-accept{background:#2563EB;color:#fff;border:1px solid #2563EB}
+.cva-accept:hover{background:#1d4ed8;border-color:#1d4ed8}
+.cva-reject{background:transparent;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.35)}
+.cva-reject:hover{border-color:rgba(255,255,255,.7);color:#fff}
+@media(max-width:768px){.cva-consent-inner{flex-direction:column;align-items:flex-start}
+  .cva-consent-btns button{flex:1 1 auto}}
+</style>
+<div class="cva-consent" id="cvaConsentBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cva-consent-inner">
+    <p class="cva-consent-text">🍪 We use cookies to serve contextual advertising, measure site traffic, and improve your experience. With your consent, ads and analytics may be personalized. You can change your choice at any time — see our <a href="/cookie-policy.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+    <div class="cva-consent-btns">
+      <button type="button" class="cva-accept" id="cvaAccept">Accept all cookies</button>
+      <button type="button" class="cva-reject" id="cvaReject">Essential only</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  function store(v){try{localStorage.setItem('cookieConsent',v);}catch(e){}}
+  function update(v){
+    var g = v === 'granted';
+    var s = g ? 'granted' : 'denied';
+    if (typeof gtag === 'function') {
+      gtag('consent','update',{ad_storage:s,ad_user_data:s,ad_personalization:s,analytics_storage:s});
+    }
+    window.adsbygoogle = window.adsbygoogle || {};
+    window.adsbygoogle.requestNonPersonalizedAds = g ? 0 : 1;
+    var b = document.getElementById('cvaConsentBanner');
+    if (b) b.classList.remove('show');
+  }
+  window.setCookieConsent = function(v){ store(v); update(v); };
+  window.resetCookieConsent = function(){ try{localStorage.removeItem('cookieConsent');}catch(e){} location.reload(); };
+  var a = document.getElementById('cvaAccept'), r = document.getElementById('cvaReject');
+  if (a) a.addEventListener('click', function(){ window.setCookieConsent('granted'); });
+  if (r) r.addEventListener('click', function(){ window.setCookieConsent('denied'); });
+  var c = null; try { c = localStorage.getItem('cookieConsent'); } catch(e){}
+  if (c !== 'granted' && c !== 'denied') {
+    var b = document.getElementById('cvaConsentBanner');
+    if (b) b.classList.add('show');
+  }
+})();
+</script>
+
 </body>
 </html>
