@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- ============================================================
+         CONSENT MODE v2 — loads BEFORE any Google tag.
+         Defaults are DENIED until the visitor explicitly accepts.
+         Without 'granted' consent AdSense is forced into
+         non-personalized mode (requestNonPersonalizedAds = 1), which
+         satisfies the EU User Consent Policy + GDPR / ePrivacy.
+         ============================================================ -->
+    <script>
+      function __getConsent(){try{return localStorage.getItem('cookieConsent');}catch(e){return null;}}
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent','default',{
+        'ad_storage':'denied',
+        'ad_user_data':'denied',
+        'ad_personalization':'denied',
+        'analytics_storage':'denied',
+        'region':['EEA','GB','CH']
+      });
+      (function(){
+        if (__getConsent() === 'granted') {
+          gtag('consent','update',{
+            'ad_storage':'granted',
+            'ad_user_data':'granted',
+            'ad_personalization':'granted',
+            'analytics_storage':'granted'
+          });
+        } else {
+          window.adsbygoogle = window.adsbygoogle || {};
+          window.adsbygoogle.requestNonPersonalizedAds = 1;
+        }
+      })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editorial Team & Research Staff — CoinvestAI 2026</title>
@@ -37,6 +69,11 @@
         
         @media(max-width:768px){.values-grid{grid-template-columns:1fr;}}
     </style>
+    <meta name="google-adsense-account" content="ca-pub-7088247829787060">
+    <!-- Google AdSense — Auto Ads (single loader per page) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7088247829787060" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPJ3YFPZJY"></script>
+    <script>gtag("js", new Date()); gtag("config", "G-JPJ3YFPZJY", {anonymize_ip:true});</script>
 </head>
 <body>
 
@@ -62,27 +99,70 @@
     <div class="container team-section">
         <div class="section-intro">
             <p>At CoinvestAI, we combine deep quantitative expertise with cutting-edge artificial intelligence. Our team ensures that every review, guide, and market dispatch adheres to our strict editorial standards.</p>
+            <p>This byline — <strong>CoinvestAI Editorial Team</strong> — is a collective credit. It is used for research produced jointly across desks, for methodology and standards documents, and for comparative testing that no single analyst could reasonably own alone. It is never used to obscure authorship: every article published under this byline has a named drafter and a named reviewer, both recorded internally, and both accountable for the result under our <a href="editorial-guidelines.html">editorial guidelines</a>. For the individual analysts and their coverage areas, see the full <a href="authors.html">authors directory</a>.</p>
+        </div>
+
+        <div style="background:#fffbeb;border-left:4px solid #f59e0b;padding:16px 20px;margin:26px 0;border-radius:0 8px 8px 0;font-size:14px;color:#92400e;line-height:1.75">
+            <strong>⚠️ Editorial &amp; Legal Disclaimer:</strong> All content published by the CoinvestAI Editorial Team is produced for educational, research, and informational purposes only. Nothing we publish constitutes financial, investment, trading, legal, accounting, or tax advice, and no article takes your personal circumstances into account. Markets involve substantial risk of loss, and past performance — including any backtest, simulation, or scanner output described on this site — does not indicate future results. We are not a registered investment adviser, broker-dealer, or law firm. Read our full <a href="disclaimer.html" style="color:#92400e;text-decoration:underline">risk disclaimer</a> and <a href="terms.html" style="color:#92400e;text-decoration:underline">terms of use</a> before acting on anything published here.
         </div>
 
         <div class="team-grid">
             <div class="team-card">
+                <div class="avatar">AV</div>
+                <h3>Alexander Vance</h3>
+                <div class="role">Lead Quantitative Research Analyst</div>
+                <p>Owns model validation and backtesting methodology: bias elimination, purged cross-validation, overfitting detection, and the gap between reported backtest performance and live execution. Also covers open-source financial ML frameworks and market microstructure.</p>
+                <p style="margin-top:10px"><a href="authors.html#alexander-vance" style="color:var(--secondary,#2563EB);font-weight:600;font-size:13.5px">Selected work →</a></p>
+            </div>
+            <div class="team-card">
+                <div class="avatar">SL</div>
+                <h3>Sophia Lin</h3>
+                <div class="role">Fintech &amp; Wealth Management Editor</div>
+                <p>Covers robo-advisory, digital banking automation, credit modelling, and retail investor education. Writes for readers using AI-assisted financial tooling for the first time, with consistent emphasis on what the tools cannot do and where verification is mandatory.</p>
+                <p style="margin-top:10px"><a href="authors.html#sophia-lin" style="color:var(--secondary,#2563EB);font-weight:600;font-size:13.5px">Selected work →</a></p>
+            </div>
+            <div class="team-card">
                 <div class="avatar">QA</div>
-                <h3>Lead Research Desk</h3>
-                <div class="role">Quantitative Analysis & Strategy</div>
-                <p>Specializing in algorithmic backtesting, market microstructure, and performance metrics for AI trading software.</p>
+                <h3>Quantitative Desk</h3>
+                <div class="role">Quantitative Analysis &amp; Strategy</div>
+                <p>Group byline for work on algorithmic backtesting, machine-learning portfolio construction, execution algorithms, statistical arbitrage research, and performance metrics for AI trading software.</p>
+                <p style="margin-top:10px"><a href="authors.html#quant-desk-work" style="color:var(--secondary,#2563EB);font-weight:600;font-size:13.5px">Desk coverage →</a></p>
             </div>
             <div class="team-card">
                 <div class="avatar">FT</div>
                 <h3>Fintech Editor</h3>
                 <div class="role">Financial Innovation Lead</div>
-                <p>Focuses on banking infrastructure, generative AI integration in auditing, and digital ledger innovation.</p>
+                <p>Focuses on banking infrastructure, payments and settlement, generative AI integration in corporate auditing, credit underwriting, and digital ledger innovation.</p>
+                <p style="margin-top:10px"><a href="authors.html#sophia-lin-work" style="color:var(--secondary,#2563EB);font-weight:600;font-size:13.5px">Coverage archive →</a></p>
             </div>
             <div class="team-card">
                 <div class="avatar">ET</div>
-                <h3>Ethics & Compliance</h3>
-                <div class="role">AI Policy & Safety</div>
-                <p>Oversees regulatory alignment, risk framework adherence, and compliance transparency in decentralized finance protocols.</p>
+                <h3>Ethics &amp; Compliance</h3>
+                <div class="role">AI Policy &amp; Safety</div>
+                <p>Reviews regulatory alignment across the EU AI Act, US model-risk and fair-lending frameworks, and UK supervisory expectations; owns risk-framework adherence and compliance transparency in decentralised finance coverage. Holds veto authority on any claim we cannot source.</p>
+                <p style="margin-top:10px"><a href="blog-ai-regulatory-compliance-finance.html" style="color:var(--secondary,#2563EB);font-weight:600;font-size:13.5px">Compliance research →</a></p>
             </div>
+            <div class="team-card">
+                <div class="avatar">CR</div>
+                <h3>Crypto Research Desk</h3>
+                <div class="role">On-Chain Analytics &amp; Protocol Intelligence</div>
+                <p>Group byline covering on-chain analytics, MEV and market-structure research, cross-chain interoperability risk, smart-contract security auditing practice, and stablecoin infrastructure.</p>
+                <p style="margin-top:10px"><a href="authors.html#crypto-desk-work" style="color:var(--secondary,#2563EB);font-weight:600;font-size:13.5px">Desk coverage →</a></p>
+            </div>
+        </div>
+
+        <div class="values-box">
+            <h2>How a CoinvestAI Article Is Produced</h2>
+            <p style="margin-bottom:20px;opacity:.82">Every published piece passes the same six stages. We describe the process because a byline without a workflow behind it is not evidence of anything.</p>
+            <ol style="padding-left:22px;line-height:1.85;margin-bottom:8px">
+                <li style="margin-bottom:10px"><strong>Scoping and conflict check.</strong> The topic is assigned to an analyst inside their declared coverage area. Any commercial relationship with a vendor that will be named is identified at this stage, not at publication.</li>
+                <li style="margin-bottom:10px"><strong>Primary-source research.</strong> Claims are traced to vendor documentation, regulatory text, filings, peer-reviewed literature, or our own testing. Secondary commentary is not treated as a source.</li>
+                <li style="margin-bottom:10px"><strong>Hands-on testing where applicable.</strong> Platform and tool reviews run a fixed task battery, executed multiple times to separate capability from run-to-run variance. Single-run results are never published as findings.</li>
+                <li style="margin-bottom:10px"><strong>Scoring under the published methodology.</strong> Ratings come from the weighted <a href="review-methodology.html">7-factor framework</a>. Weights are fixed before scoring and cannot be adjusted after results are known.</li>
+                <li style="margin-bottom:10px"><strong>Independent second review.</strong> A second analyst outside the drafting desk checks sourcing, arithmetic, and whether limitations are stated as prominently as strengths.</li>
+                <li style="margin-bottom:10px"><strong>Compliance and disclaimer pass.</strong> The Ethics &amp; Compliance reviewer confirms that risk language, disclaimers, and regulatory characterisations are accurate, and that no claim implies guaranteed returns or loss prevention.</li>
+            </ol>
+            <p style="margin-top:16px;opacity:.82">Corrections are published on the article itself with the date and substance of the change. We do not silently edit published figures. To report an error, a broken source, or an undisclosed conflict, use our <a href="contact.html">contact page</a>.</p>
         </div>
 
         <div class="values-box">
@@ -90,20 +170,40 @@
             <div class="values-grid">
                 <div>
                     <h4>Independent Research</h4>
-                    <p>We are beholden only to our readers. Ratings are based on data, not paid placements.</p>
+                    <p>We are beholden only to our readers. Ratings are based on data, not paid placements. No vendor can purchase coverage, a score, or a position, and no score has ever been negotiated.</p>
                 </div>
                 <div>
                     <h4>Fact-Driven Insights</h4>
-                    <p>Every claim is verified against primary sources, ensuring accuracy in a fast-moving AI landscape.</p>
+                    <p>Every claim is verified against primary sources, ensuring accuracy in a fast-moving AI landscape. Where evidence is thin or contested, we say so explicitly rather than presenting a confident summary of it.</p>
                 </div>
                 <div>
                     <h4>Human Oversight</h4>
-                    <p>While we use AI to analyze data, final analysis is always vetted by human experts.</p>
+                    <p>While we use AI to analyse data, final analysis is always vetted by human experts who are named internally and accountable for the result. We disclose where AI tooling was used in production.</p>
                 </div>
                 <div>
                     <h4>Transparency</h4>
-                    <p>We openly disclose our review methodology and scoring frameworks.</p>
+                    <p>We openly disclose our review methodology, scoring frameworks, weighting, affiliate relationships, and advertising arrangements — including the fact that contextual advertising supports this publication.</p>
                 </div>
+                <div>
+                    <h4>Limitations Stated Prominently</h4>
+                    <p>Every review includes what the tool cannot do and where it fails. A review that lists only strengths is marketing, and we treat the weakness section as the more important half.</p>
+                </div>
+                <div>
+                    <h4>No Performance Promises</h4>
+                    <p>We never publish claims of guaranteed profit, assured accuracy, risk-free returns, or loss prevention. Any vendor making such claims is identified as a red flag in our evaluation framework.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="values-box">
+            <h2>Standards &amp; Policy Documents</h2>
+            <div class="values-grid">
+                <div><h4><a href="editorial-guidelines.html" style="color:inherit">Editorial Guidelines</a></h4><p>Sourcing standards, fact-checking process, AI-use disclosure, corrections policy, and independence rules.</p></div>
+                <div><h4><a href="review-methodology.html" style="color:inherit">Review Methodology</a></h4><p>The weighted 7-factor scoring framework, testing protocol, and how ratings are calculated.</p></div>
+                <div><h4><a href="authors.html" style="color:inherit">Authors Directory</a></h4><p>Named analysts, desk bylines, coverage areas, and selected work for each.</p></div>
+                <div><h4><a href="disclaimer.html" style="color:inherit">Risk Disclaimer</a></h4><p>Full statement on the educational nature of our content and the risks of trading and investing.</p></div>
+                <div><h4><a href="about.html" style="color:inherit">About CoinvestAI</a></h4><p>Our mission, funding model, advertising and affiliate disclosure, and how the publication operates.</p></div>
+                <div><h4><a href="contact.html" style="color:inherit">Contact &amp; Corrections</a></h4><p>How to reach the desk, report an error, disclose a conflict, or request a retraction.</p></div>
             </div>
         </div>
     </div>
@@ -125,6 +225,63 @@
     try {
         if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
     } catch (e) {}
+</script>
+
+<!-- ===== GDPR / ePrivacy cookie consent banner (pairs with Consent Mode v2 in the document head) ===== -->
+<style>
+.cva-consent{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:none;
+  padding:16px 16px 20px;background:linear-gradient(160deg,#0F172A,#1e293b);
+  border-top:1px solid rgba(255,255,255,.12);box-shadow:0 -10px 40px rgba(0,0,0,.35);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+.cva-consent.show{display:block}
+.cva-consent-inner{max-width:1100px;margin:0 auto;display:flex;gap:20px;align-items:center;
+  justify-content:space-between;flex-wrap:wrap}
+.cva-consent-text{color:rgba(255,255,255,.78);font-size:13px;line-height:1.65;max-width:660px;margin:0}
+.cva-consent-text a{color:#7da7ff;text-decoration:underline}
+.cva-consent-btns{display:flex;gap:10px;flex-wrap:wrap}
+.cva-consent-btns button{border-radius:10px;padding:11px 22px;font-size:14px;font-weight:600;
+  cursor:pointer;font-family:inherit;transition:background .2s,border-color .2s,color .2s}
+.cva-accept{background:#2563EB;color:#fff;border:1px solid #2563EB}
+.cva-accept:hover{background:#1d4ed8;border-color:#1d4ed8}
+.cva-reject{background:transparent;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.35)}
+.cva-reject:hover{border-color:rgba(255,255,255,.7);color:#fff}
+@media(max-width:768px){.cva-consent-inner{flex-direction:column;align-items:flex-start}
+  .cva-consent-btns button{flex:1 1 auto}}
+</style>
+<div class="cva-consent" id="cvaConsentBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cva-consent-inner">
+    <p class="cva-consent-text">🍪 We use cookies to serve contextual advertising, measure site traffic, and improve your experience. With your consent, ads and analytics may be personalized. You can change your choice at any time — see our <a href="/cookie-policy.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+    <div class="cva-consent-btns">
+      <button type="button" class="cva-accept" id="cvaAccept">Accept all cookies</button>
+      <button type="button" class="cva-reject" id="cvaReject">Essential only</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  function store(v){try{localStorage.setItem('cookieConsent',v);}catch(e){}}
+  function update(v){
+    var g = v === 'granted';
+    var s = g ? 'granted' : 'denied';
+    if (typeof gtag === 'function') {
+      gtag('consent','update',{ad_storage:s,ad_user_data:s,ad_personalization:s,analytics_storage:s});
+    }
+    window.adsbygoogle = window.adsbygoogle || {};
+    window.adsbygoogle.requestNonPersonalizedAds = g ? 0 : 1;
+    var b = document.getElementById('cvaConsentBanner');
+    if (b) b.classList.remove('show');
+  }
+  window.setCookieConsent = function(v){ store(v); update(v); };
+  window.resetCookieConsent = function(){ try{localStorage.removeItem('cookieConsent');}catch(e){} location.reload(); };
+  var a = document.getElementById('cvaAccept'), r = document.getElementById('cvaReject');
+  if (a) a.addEventListener('click', function(){ window.setCookieConsent('granted'); });
+  if (r) r.addEventListener('click', function(){ window.setCookieConsent('denied'); });
+  var c = null; try { c = localStorage.getItem('cookieConsent'); } catch(e){}
+  if (c !== 'granted' && c !== 'denied') {
+    var b = document.getElementById('cvaConsentBanner');
+    if (b) b.classList.add('show');
+  }
+})();
 </script>
 
 </body>

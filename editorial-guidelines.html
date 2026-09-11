@@ -1,9 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- ============================================================
+         CONSENT MODE v2 — loads BEFORE any Google tag.
+         Defaults are DENIED until the visitor explicitly accepts.
+         Without 'granted' consent AdSense is forced into
+         non-personalized mode (requestNonPersonalizedAds = 1), which
+         satisfies the EU User Consent Policy + GDPR / ePrivacy.
+         ============================================================ -->
+    <script>
+      function __getConsent(){try{return localStorage.getItem('cookieConsent');}catch(e){return null;}}
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent','default',{
+        'ad_storage':'denied',
+        'ad_user_data':'denied',
+        'ad_personalization':'denied',
+        'analytics_storage':'denied',
+        'region':['EEA','GB','CH']
+      });
+      (function(){
+        if (__getConsent() === 'granted') {
+          gtag('consent','update',{
+            'ad_storage':'granted',
+            'ad_user_data':'granted',
+            'ad_personalization':'granted',
+            'analytics_storage':'granted'
+          });
+        } else {
+          window.adsbygoogle = window.adsbygoogle || {};
+          window.adsbygoogle.requestNonPersonalizedAds = 1;
+        }
+      })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editorial Guidelines | CoinvestAI</title>
+    <meta name="robots" content="index, follow, max-snippet:-1">
     <meta name="description" content="Learn about CoinvestAI's editorial standards, fact-checking processes, independence, and commitment to accurate financial and AI research.">
     <link rel="canonical" href="https://coinvestai.com/editorial-guidelines.html">
 
@@ -45,6 +78,9 @@
         window.addEventListener('mousemove', loadAdSense, {once: true, passive: true});
         setTimeout(loadAdSense, 7000);
     </script>
+    <meta name="google-adsense-account" content="ca-pub-7088247829787060">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPJ3YFPZJY"></script>
+    <script>gtag("js", new Date()); gtag("config", "G-JPJ3YFPZJY", {anonymize_ip:true});</script>
 </head>
 <body>
 
@@ -83,6 +119,70 @@
 
         <h2>5. Financial Disclaimer</h2>
         <p>CoinvestAI provides research, analytical insights, and educational content only. Nothing published on this platform constitutes formal financial, investment, or legal advice. Always conduct independent research or consult qualified professionals before making financial decisions.</p>
+
+        <div style="background:#fffbeb;border-left:4px solid #f59e0b;padding:16px 20px;margin:30px 0;border-radius:0 8px 8px 0;font-size:14px;color:#92400e;line-height:1.75">
+            <strong>⚠️ Plain-language version of the above:</strong> We are a research publication, not an adviser. We are not licensed to give you personalised financial, investment, trading, legal, or tax advice, and nothing we publish takes your circumstances into account. Trading and investing involve substantial risk of loss, including loss of your entire capital. Past performance — including any backtest, simulation, or scanner output we describe — does not indicate future results. Read the full <a href="disclaimer.html" style="color:#92400e;text-decoration:underline">risk disclaimer</a> and <a href="terms.html" style="color:#92400e;text-decoration:underline">terms of use</a>.
+        </div>
+
+        <h2>6. Sourcing Standards</h2>
+        <p>We rank sources and treat the ranking as binding during review. A claim supported only by a weak source is either strengthened or cut.</p>
+        <ul style="padding-left:22px;line-height:1.85">
+            <li><strong>Tier 1 — Primary.</strong> Statutes and regulations, regulator publications and enforcement releases, court filings, company filings and audited financial statements, official protocol documentation and verified on-chain data, peer-reviewed research, and vendor technical documentation.</li>
+            <li><strong>Tier 2 — Reputable secondary.</strong> Established financial press, recognised industry research houses, central-bank and multilateral working papers, and conference proceedings.</li>
+            <li><strong>Tier 3 — Commentary.</strong> Blogs, newsletters, social posts, vendor marketing, and YouTube analysis. Used only to identify a question worth investigating, never as the basis for a published claim.</li>
+        </ul>
+        <p>Every quantitative claim in an article must be traceable to a Tier 1 or Tier 2 source, or to our own testing with the method described. Where a figure is an estimate rather than a measurement, it is labelled as an estimate. Where sources conflict, we say so and explain which we relied on and why.</p>
+
+        <h2>7. Testing Protocol for Tool and Platform Reviews</h2>
+        <p>Reviews are the highest-risk content we publish, because a score can affect a commercial outcome. The protocol is fixed in advance and applies identically to every product in a category.</p>
+        <ul style="padding-left:22px;line-height:1.85">
+            <li><strong>Fixed task battery.</strong> The same tasks are run against every product in a category, designed before testing begins. Tasks are not chosen after seeing which product performs well.</li>
+            <li><strong>Repeated runs.</strong> Each task is executed multiple times. For agentic and generative systems, run-to-run variance is high enough to dominate small quality differences, so single-run results are never published as findings.</li>
+            <li><strong>Pre-registered weights.</strong> Scoring weights come from the published <a href="review-methodology.html">7-factor methodology</a> and are set before results are known. They are not adjusted afterwards.</li>
+            <li><strong>Limitations documented.</strong> Every review states what the product cannot do and where it fails. A review containing only strengths is returned for revision.</li>
+            <li><strong>Version and date recorded.</strong> Product versions change quickly. Every review records the version, plan tier, and test date so a reader can judge whether the finding still applies.</li>
+            <li><strong>No pre-publication access.</strong> Vendors do not see reviews before publication and cannot request changes to findings. We will correct a factual error after publication through the corrections process below.</li>
+        </ul>
+
+        <h2>8. Independence, Advertising, and Affiliate Disclosure</h2>
+        <p>CoinvestAI is funded by contextual advertising and by affiliate relationships. Both are disclosed, and neither may influence editorial output.</p>
+        <ul style="padding-left:22px;line-height:1.85">
+            <li><strong>Coverage cannot be purchased.</strong> No vendor pays for inclusion in a review, a directory listing, a score, or a ranking position.</li>
+            <li><strong>Scores cannot be negotiated.</strong> There is no commercial channel through which a rating can be raised, and no editor with revenue responsibility participates in scoring.</li>
+            <li><strong>Affiliate links are marked.</strong> Where a link carries an affiliate relationship, the article discloses it. The presence or absence of an affiliate relationship does not change a score.</li>
+            <li><strong>Advertising is separated from content.</strong> Advertising units are served by third-party networks, are labelled as advertising on the page, and are never placed so as to be confusable with editorial text. Advertisers do not select, approve, or see editorial content. Our authorised seller relationships are published in our <a href="/ads.txt">ads.txt</a> file.</li>
+            <li><strong>Conflicts are declared internally.</strong> Analysts declare any personal holding, prior employment, or commercial relationship with a named vendor before assignment. Where a conflict cannot be managed by reassignment, it is disclosed in the article.</li>
+        </ul>
+
+        <h2>9. Corrections, Updates, and Retractions</h2>
+        <p>We distinguish three kinds of change, and we do not treat them interchangeably.</p>
+        <ul style="padding-left:22px;line-height:1.85">
+            <li><strong>Correction.</strong> A factual error — a wrong figure, a misattributed claim, a broken source. Corrected in place, with a dated note at the top of the article stating what changed and why. Corrections are never made silently.</li>
+            <li><strong>Update.</strong> New information that supersedes an accurate earlier statement — a product release, a regulatory change, a new study. The article's "Last Updated" date changes and the new material is dated in context.</li>
+            <li><strong>Retraction.</strong> A central claim turns out to be unsupportable. The article is withdrawn or clearly marked as retracted, with the reason stated. We do not quietly unpublish and let the URL disappear.</li>
+        </ul>
+        <p>To report an error, use our <a href="contact.html">contact page</a> and include the article URL, the specific sentence or figure, and the primary source that contradicts it. Reports of undisclosed commercial conflicts are routed to the Ethics &amp; Compliance desk independently of the analyst who wrote the piece.</p>
+
+        <h2>10. Language We Do Not Use</h2>
+        <p>Financial content has a well-established vocabulary of harm, and we prohibit it outright rather than relying on reviewer judgement. The following are banned in headlines, body text, and metadata:</p>
+        <ul style="padding-left:22px;line-height:1.85">
+            <li>Guaranteed, assured, certain, or risk-free profit, return, or income.</li>
+            <li>Win-rate claims presented as predictive rather than as historical sample statistics.</li>
+            <li>"Get rich", "passive income without effort", "double your money", or any multiplier promise.</li>
+            <li>"Never lose", "no-loss", "zero risk", or loss-prevention guarantees.</li>
+            <li>Urgency or scarcity pressure to enter a position or buy a product.</li>
+            <li>Unqualified "best" claims without stating the criteria, the comparison set, and the test date.</li>
+        </ul>
+        <p>These terms may appear only in a critical or warning context — for example, identifying a vendor claim as a red flag. Our <a href="blog-evaluate-ai-trading-platforms.html">platform evaluation framework</a> treats any such claim by a vendor as evidence against the product, not for it.</p>
+
+        <h2>11. Bylines and Accountability</h2>
+        <p>Articles carry either a named analyst byline or a desk byline. Named bylines identify an individual accountable for the claims and restricted to their declared coverage area. Desk bylines indicate collaborative work and still have a named internal drafter and reviewer. There is no anonymous publication. The full directory, including coverage areas and selected work, is at <a href="authors.html">authors</a> and <a href="authors-coinvestai-editorial-team.html">the editorial team profile</a>.</p>
+
+        <h2>12. Reader Data and Privacy</h2>
+        <p>We collect the minimum data required to operate the site and to respond to messages sent through our contact form. Advertising and analytics are governed by a consent mechanism: until a visitor accepts, consent defaults are set to denied and advertising is requested in non-personalised mode only. Details, including your rights and how to withdraw consent, are in our <a href="privacy-policy.html">privacy policy</a> and <a href="cookie-policy.html">cookie policy</a>.</p>
+
+        <h2>13. Enforcement</h2>
+        <p>These guidelines are conditions of publication, not aspirations. Material that does not meet them is not published, regardless of traffic potential. Where a published piece is later found to breach them, the corrections process above applies and the breach is recorded internally so the failure point in review can be fixed rather than only the article.</p>
     </div>
 </main>
 
@@ -146,5 +246,63 @@
         }
     } catch (e) {}
 </script>
+
+<!-- ===== GDPR / ePrivacy cookie consent banner (pairs with Consent Mode v2 in the document head) ===== -->
+<style>
+.cva-consent{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:none;
+  padding:16px 16px 20px;background:linear-gradient(160deg,#0F172A,#1e293b);
+  border-top:1px solid rgba(255,255,255,.12);box-shadow:0 -10px 40px rgba(0,0,0,.35);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+.cva-consent.show{display:block}
+.cva-consent-inner{max-width:1100px;margin:0 auto;display:flex;gap:20px;align-items:center;
+  justify-content:space-between;flex-wrap:wrap}
+.cva-consent-text{color:rgba(255,255,255,.78);font-size:13px;line-height:1.65;max-width:660px;margin:0}
+.cva-consent-text a{color:#7da7ff;text-decoration:underline}
+.cva-consent-btns{display:flex;gap:10px;flex-wrap:wrap}
+.cva-consent-btns button{border-radius:10px;padding:11px 22px;font-size:14px;font-weight:600;
+  cursor:pointer;font-family:inherit;transition:background .2s,border-color .2s,color .2s}
+.cva-accept{background:#2563EB;color:#fff;border:1px solid #2563EB}
+.cva-accept:hover{background:#1d4ed8;border-color:#1d4ed8}
+.cva-reject{background:transparent;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.35)}
+.cva-reject:hover{border-color:rgba(255,255,255,.7);color:#fff}
+@media(max-width:768px){.cva-consent-inner{flex-direction:column;align-items:flex-start}
+  .cva-consent-btns button{flex:1 1 auto}}
+</style>
+<div class="cva-consent" id="cvaConsentBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cva-consent-inner">
+    <p class="cva-consent-text">🍪 We use cookies to serve contextual advertising, measure site traffic, and improve your experience. With your consent, ads and analytics may be personalized. You can change your choice at any time — see our <a href="/cookie-policy.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+    <div class="cva-consent-btns">
+      <button type="button" class="cva-accept" id="cvaAccept">Accept all cookies</button>
+      <button type="button" class="cva-reject" id="cvaReject">Essential only</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  function store(v){try{localStorage.setItem('cookieConsent',v);}catch(e){}}
+  function update(v){
+    var g = v === 'granted';
+    var s = g ? 'granted' : 'denied';
+    if (typeof gtag === 'function') {
+      gtag('consent','update',{ad_storage:s,ad_user_data:s,ad_personalization:s,analytics_storage:s});
+    }
+    window.adsbygoogle = window.adsbygoogle || {};
+    window.adsbygoogle.requestNonPersonalizedAds = g ? 0 : 1;
+    var b = document.getElementById('cvaConsentBanner');
+    if (b) b.classList.remove('show');
+  }
+  window.setCookieConsent = function(v){ store(v); update(v); };
+  window.resetCookieConsent = function(){ try{localStorage.removeItem('cookieConsent');}catch(e){} location.reload(); };
+  var a = document.getElementById('cvaAccept'), r = document.getElementById('cvaReject');
+  if (a) a.addEventListener('click', function(){ window.setCookieConsent('granted'); });
+  if (r) r.addEventListener('click', function(){ window.setCookieConsent('denied'); });
+  var c = null; try { c = localStorage.getItem('cookieConsent'); } catch(e){}
+  if (c !== 'granted' && c !== 'denied') {
+    var b = document.getElementById('cvaConsentBanner');
+    if (b) b.classList.add('show');
+  }
+})();
+</script>
+
 </body>
 </html>
