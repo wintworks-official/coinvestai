@@ -1,0 +1,3 @@
+# AI source masters (PNG, ~2 MB each) — kept locally so images can be re-cropped
+# to other ratios later; only the optimized JPEGs in images/ are committed.
+images/raw/
